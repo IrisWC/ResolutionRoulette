@@ -7,8 +7,10 @@ import java.awt.Graphics;
 import java.awt.GraphicsEnvironment;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.font.TextAttribute;
 import java.io.File;
 import java.io.IOException;
+import java.text.AttributedString;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -44,7 +46,24 @@ public class Easy extends JPanel implements ActionListener {
 //		
 //		g2.setTransform(at);
 		
-		g.drawString("mwahahahaha", 100, 100);
+		Font font = null;
+		
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/PixelifySans-VariableFont_wght.ttf")).deriveFont(48f);
+			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+			ge.registerFont(font);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FontFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+//		g.drawString("mwahahahaha", 100, 100);
+		AttributedString atString= new AttributedString("mwahahahaha");
+		atString.addAttribute(TextAttribute.FONT, font);
+		g.drawString(atString.getIterator(), 100, 100);
 		
 	}
 	
@@ -59,20 +78,6 @@ public class Easy extends JPanel implements ActionListener {
 				e.printStackTrace();
 			}
 			
-			Font font = null;
-			
-			try {
-				font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/PixelifySans-VariableFont_wght.ttf")).deriveFont(48f);
-				GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-				ge.registerFont(font);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (FontFormatException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			this.setFont(font);
 			
 		}
 	}
