@@ -1,4 +1,4 @@
-package Core;
+package core;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -14,7 +14,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
-import screens.Easy;
+import screens.Screen;
 
 public class Game extends JFrame { //implements ActionListener, WindowListener{
 	
@@ -23,7 +23,7 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 	
 	private JPanel cardPanel;
 	
-	private Easy easy;
+	private Screen easy, medium, hard, nightmare;
 	
 	public Game() {
 		super("Mwahahaha");
@@ -35,7 +35,7 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 		CardLayout cl = new CardLayout();
 		cardPanel.setLayout(cl);
 		
-		easy = new Screen(this, WIDTH, HEIGHT);
+		easy = new Screen(this, "easy");
 		cardPanel.add(easy, "easy");
 		
 		add(cardPanel);

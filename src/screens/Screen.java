@@ -17,17 +17,20 @@ import java.util.Scanner;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import Core.Game;
+import core.Game;
+import fileStuff.FileChanger;
 
 public class Screen extends JPanel implements ActionListener {
 
 	private Game mainCore;
+	private String level;
 	private FileChanger[] categories;
-	private int[] coin;
 	
-	public Screen(Game mainCore, int width, int height) {
+	public Screen(Game mainCore, String level) {
 		super();
 		this.mainCore = mainCore;
+		this.level = level;
+		categories = new FileChanger[7];
 		
 		this.setBackground(new Color(230,190,200));
 		
