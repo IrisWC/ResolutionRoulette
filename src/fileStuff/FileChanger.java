@@ -81,7 +81,6 @@ public class FileChanger {
 			fileToRead = new Scanner(new File(file));
 			for (String line; fileToRead.hasNextLine() && (line = fileToRead.nextLine()) != null; ) {
 				contents = contents + line + "\r\n";
-//				stringBufferOfData.append(line).append("\r\n");
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println("The file " + file + " could not be found! " + e.getMessage());

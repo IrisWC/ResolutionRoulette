@@ -1,4 +1,5 @@
 EASY
+Take out the trash
 
 MEDIUM
 

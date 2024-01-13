@@ -1,4 +1,5 @@
 EASY
+Learn to draw a shape
 
 MEDIUM
 

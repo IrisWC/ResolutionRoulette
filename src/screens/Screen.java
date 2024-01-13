@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.text.AttributedString;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
@@ -26,7 +27,8 @@ public class Screen extends JPanel implements ActionListener {
 	private FilesWindow fw;
 	private String level;
 	private String[] categoryNames;
-	
+	private JComboBox<String> categoryBox;
+	private JButton rollButton;
 	private FileChanger test;
 	
 	public Screen(Game mainCore, FilesWindow fw, String level) {
@@ -35,19 +37,38 @@ public class Screen extends JPanel implements ActionListener {
 		this.level = level;
 		
 		this.setBackground(new Color(230,190,200));
+		this.setLayout(null);
 		
 		this.fw = fw;
 		categoryNames = fw.returnNames();
         
+		Font font = null;
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/PixelifySans-VariableFont_wght.ttf")).deriveFont(48f);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FontFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		JComboBox<String> categoryBox = new JComboBox<>(categoryNames);	
-		categoryBox.setBounds(543, 244, 140, 50);
+		categoryBox = new JComboBox<>(categoryNames);	
+		categoryBox.setFont(font);
+		categoryBox.setBounds(250, 100, 300, 50);
 		categoryBox.setBackground(new Color(65, 31, 78));
 		this.setOpaque(true);
 		categoryBox.setForeground(new Color(200, 200, 200));
-		this.add(categoryBox);
-        
+		categoryBox.addActionListener(this);
         this.add(categoryBox);
+        
+        rollButton = new JButton("New challenge");
+        rollButton.setFont(font);
+        rollButton.setBounds(200, 650, 400, 50);
+        rollButton.addActionListener(this);
+        rollButton.setBackground(new Color(65, 31, 78));
+        rollButton.setForeground(new Color(200, 200, 200));
+        this.add(rollButton);
 		
 		test = new FileChanger("files/test.txt");
 //		if (test.readFile()) {
@@ -109,9 +130,9 @@ u shall laugh
 		atString.addAttribute(TextAttribute.FONT, font);
 		g.drawString(atString.getIterator(), 60, 600);
 		
-		test.deleteFirstChar();
-		test.add(null, (int)(Math.random() * 10) + "");
-		test.writeToFile();
+//		test.deleteFirstChar();
+//		test.add(null, (int)(Math.random() * 10) + "");
+//		test.writeToFile();
 		
 	}
 	
@@ -134,7 +155,10 @@ u shall laugh
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		if(e.getSource() == categoryBox) {
+			String selection = (String)categoryBox.getSelectedItem();
+			test = new FileChanger("files/" + selection + ".txt");
+		}
 	}
 	
 }
