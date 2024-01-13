@@ -37,7 +37,8 @@ public class Screen extends JPanel implements ActionListener {
 		this.mainCore = mainCore;
 		this.level = level;
 		
-		this.setBackground(new Color(230,190,200));
+//		this.setBackground(new Color(230,190,200));
+		this.setBackground(new Color(12,4,43));
 		this.setLayout(null);
 		
 		this.fw = fw;
@@ -60,18 +61,18 @@ public class Screen extends JPanel implements ActionListener {
 		categoryBox = new JComboBox<>(categoryNames);	
 		categoryBox.setFont(font);
 		categoryBox.setBounds(250, 50, 300, 60);
-		categoryBox.setBackground(new Color(65, 31, 78));
+		categoryBox.setBackground(new Color(255, 236, 206));
 		categoryBox.setOpaque(true);
-		categoryBox.setForeground(new Color(200, 200, 200));
+		categoryBox.setForeground(new Color(91, 58, 124));
 		categoryBox.addActionListener(this);
         this.add(categoryBox);
         
         difficultyBox = new JComboBox<>(difficultyNames);	
         difficultyBox.setFont(font);
         difficultyBox.setBounds(250, 125, 300, 60);
-        difficultyBox.setBackground(new Color(65, 31, 78));
+        difficultyBox.setBackground(new Color(255, 236, 206));
         difficultyBox.setOpaque(true);
-        difficultyBox.setForeground(new Color(200, 200, 200));
+        difficultyBox.setForeground(new Color(91, 58, 124));
         difficultyBox.addActionListener(this);
         this.add(difficultyBox);
         
@@ -79,11 +80,11 @@ public class Screen extends JPanel implements ActionListener {
         rollButton.setFont(font);
         rollButton.setBounds(200, 650, 400, 60);
         rollButton.addActionListener(this);
-        rollButton.setBackground(new Color(65, 31, 78));
-        rollButton.setForeground(new Color(200, 200, 200));
+        rollButton.setBackground(new Color(255, 236, 206));
+        rollButton.setForeground(new Color(91, 58, 124));
         this.add(rollButton);
 		
-		test = new FileChanger("files/test.txt");
+//		test = new FileChanger("files/test.txt");
 //		if (test.readFile()) {
 //			test.add("i love apples", "i eat monkeys");
 //			test.add(null, "i am the all mighty");
