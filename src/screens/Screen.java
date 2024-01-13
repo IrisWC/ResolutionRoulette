@@ -49,6 +49,7 @@ public class Screen extends JPanel implements ActionListener {
 		if (test.readFile()) {
 			test.add("i love apples", "i eat monkeys");
 			test.add(null, "i am the all mighty");
+			test.delete("u shall laugh");
 			test.writeToFile();
 		}
 		

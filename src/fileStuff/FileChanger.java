@@ -36,11 +36,17 @@ public class FileChanger {
 			stringBufferOfData.append(edit);
 		}
 		else {
-			int startIndex = stringBufferOfData.indexOf(toEdit);
-			int endIndex = startIndex + toEdit.length();
-			stringBufferOfData.delete(startIndex, endIndex);
-			stringBufferOfData.insert(startIndex, edit);
+			int start = stringBufferOfData.indexOf(toEdit);
+			int end = start + toEdit.length();
+			stringBufferOfData.delete(start, end);
+			stringBufferOfData.insert(start, edit);
 		}
+	}
+	
+	public void delete(String line) {
+		int start = stringBufferOfData.indexOf(line);
+		int end = start + line.length();
+		stringBufferOfData.delete(start, end);
 	}
 	
 	public void writeToFile() {
