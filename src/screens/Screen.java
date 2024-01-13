@@ -49,7 +49,7 @@ public class Screen extends JPanel implements ActionListener {
         
         this.add(categoryBox);
 		
-//		test = new FileChanger("files/test.txt");
+		test = new FileChanger("files/test.txt");
 //		if (test.readFile()) {
 //			test.add("i love apples", "i eat monkeys");
 //			test.add(null, "i am the all mighty");
@@ -101,9 +101,17 @@ u shall laugh
 		}
 		
 //		g.drawString("mwahahahaha", 100, 100);
-		AttributedString atString= new AttributedString("Do a small coloring page today.");
+//		AttributedString atString= new AttributedString("Do a small coloring page today.");
+//		atString.addAttribute(TextAttribute.FONT, font);
+//		g.drawString(atString.getIterator(), 50, 600);
+		
+		AttributedString atString = new AttributedString(test.readFileContents());
 		atString.addAttribute(TextAttribute.FONT, font);
-		g.drawString(atString.getIterator(), 50, 600);
+		g.drawString(atString.getIterator(), 60, 600);
+		
+		test.deleteFirstChar();
+		test.add(null, (int)(Math.random() * 10) + "");
+		test.writeToFile();
 		
 	}
 	

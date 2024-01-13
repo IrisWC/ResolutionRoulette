@@ -52,6 +52,12 @@ public class FileChanger {
 		stringBufferOfData.delete(start, end);
 	}
 	
+	public void deleteFirstChar() {
+//		int start = stringBufferOfData.indexOf(line);
+//		int end = start + line.length();
+		stringBufferOfData.delete(0, 1);
+	}
+	
 	public void writeToFile() {
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(file));
@@ -66,6 +72,24 @@ public class FileChanger {
 		int start = file.indexOf("/") + 1;
 		int end = file.indexOf(".");
 		return file.substring(start, end);
+	}
+	
+	public String readFileContents() {
+		String contents = "";
+		Scanner fileToRead = null;
+		try {
+			fileToRead = new Scanner(new File(file));
+			for (String line; fileToRead.hasNextLine() && (line = fileToRead.nextLine()) != null; ) {
+				contents = contents + line + "\r\n";
+//				stringBufferOfData.append(line).append("\r\n");
+			}
+		} catch (FileNotFoundException e) {
+			System.out.println("The file " + file + " could not be found! " + e.getMessage());
+			return "";
+		} finally {
+			fileToRead.close();
+		}
+		return contents;
 	}
 
     
