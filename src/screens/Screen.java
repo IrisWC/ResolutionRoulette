@@ -196,7 +196,8 @@ u shall laugh
 			end = contents.length();
 		}
 		contents = contents.substring(start, end);
-		System.out.println(contents);
+		contents = contents.trim();
+		
 		return "";
 	}
 	
