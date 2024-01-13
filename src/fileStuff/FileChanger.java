@@ -1,11 +1,14 @@
 package fileStuff;
+import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.Scanner;
 
-public class FileChanger {
+import javax.swing.JFrame;
+
+public class FileChanger extends JFrame implements ActionListener{
 	
 	private static StringBuffer stringBufferOfData = new StringBuffer();
 	private String file;
