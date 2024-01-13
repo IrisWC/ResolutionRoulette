@@ -69,64 +69,6 @@ public class Easy extends JPanel implements ActionListener {
 		
 	}
 	
-	public static void setUp(String i, String o) {//String i, String o) {
-//		try {
-//			File input = new File(i);
-//			Scanner s = new Scanner(input);
-//			s.useDelimiter(",");
-//			
-//			File output = new File(o);
-//			PrintWriter writer = new PrintWriter(output);
-//			
-//			while (s.hasNext()) {
-//				String next = s.next();
-//				if (isPrime(next)) {
-//					writer.println(next);
-//				}
-//			}
-//			
-//			writer.close();
-//			
-//		}
-//		catch (IOException e) {
-//			System.out.println(e.getMessage());
-//		}
-		
-		try {
-			File input = new File(i);
-			Scanner s = new Scanner(input);
-			s.useDelimiter("\n");
-			
-			File output = new File(o);
-			PrintWriter writer = new PrintWriter(output);
-			
-			while (s.hasNext()) {
-				String next = s.next();
-				if (next.charAt(0) == 'i') {
-					writer.println(next);
-				}
-			}
-			
-			writer.close();
-			
-		}
-		catch (IOException e) {
-			System.out.println(e.getMessage());
-		}
-	}
-	
-	/*
-	 * i am a monkey
-i love apples
-poop is delicious
-u shall laugh
-	 */
-	
-	public static void main (String[] args) {
-		Easy.setUp("easy/input", "easy/output");
-		
-	}
-	
 	
 //	public void run() {
 //		while(true) {
