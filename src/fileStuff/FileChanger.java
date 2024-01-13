@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 import javax.swing.JFrame;
 
-public class FileChanger extends JFrame implements ActionListener{
+public class FileChanger {
 	
 	private static StringBuffer stringBufferOfData = new StringBuffer();
 	private String file;

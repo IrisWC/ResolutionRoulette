@@ -18,37 +18,26 @@ import javax.swing.JPanel;
 
 import core.Game;
 import fileStuff.FileChanger;
+import fileStuff.FilesWindow;
 
 public class Screen extends JPanel implements ActionListener {
 
 	private Game mainCore;
+	private FilesWindow fw;
 	private String level;
-	private FileChanger[] categories;
 	private String[] categoryNames;
 	
 	private FileChanger test;
 	
-	public Screen(Game mainCore, String level) {
+	public Screen(Game mainCore, FilesWindow fw, String level) {
 		super();
 		this.mainCore = mainCore;
 		this.level = level;
 		
 		this.setBackground(new Color(230,190,200));
 		
-		categories = new FileChanger[8];
-		categories[0] = new FileChanger("files/clean.txt");
-		categories[1] = new FileChanger("files/diet.txt");
-		categories[2] = new FileChanger("files/exercise.txt");
-		categories[3] = new FileChanger("files/mindfulness.txt");
-		categories[4] = new FileChanger("files/new skill.txt");
-		categories[5] = new FileChanger("files/punishment.txt");
-		categories[6] = new FileChanger("files/self-care.txt");
-		categories[7] = new FileChanger("files/social.txt");
-		
-		categoryNames = new String[8];
-		for (int i = 0; i < categories.length; i++) {
-			categoryNames[i] = categories[i].toString();
-		}
+		this.fw = fw;
+		categoryNames = fw.returnNames();
         
 		
 		JComboBox<String> categoryBox = new JComboBox<>(categoryNames);	

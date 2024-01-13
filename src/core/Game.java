@@ -14,6 +14,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
+import fileStuff.FilesWindow;
 import screens.Screen;
 
 public class Game extends JFrame { //implements ActionListener, WindowListener{
@@ -22,7 +23,7 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 	public static final int HEIGHT = 800;
 	
 	private JPanel cardPanel;
-	
+	private FilesWindow fw;
 	private Screen easy, medium, hard, nightmare;
 	
 	public Game() {
@@ -35,7 +36,9 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 		CardLayout cl = new CardLayout();
 		cardPanel.setLayout(cl);
 		
-		easy = new Screen(this, "easy");
+		fw = new FilesWindow();
+		
+		easy = new Screen(this, fw, "easy");
 		cardPanel.add(easy, "easy");
 		
 		add(cardPanel);
