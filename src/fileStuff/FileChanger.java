@@ -10,15 +10,11 @@ public class FileChanger {
 	private static StringBuffer stringBufferOfData = new StringBuffer();
 	private String file;
 	
-	public FileChanger(String f, String lineToEdit, String edit) {
+	public FileChanger(String f) {
 		file = f;
-		if (readFile()) {
-			add(lineToEdit, edit);
-			writeToFile();
-		}
 	}
 	
-	private boolean readFile() {
+	public boolean readFile() {
 		Scanner fileToRead = null;
 		try {
 			fileToRead = new Scanner(new File(file));
@@ -35,7 +31,7 @@ public class FileChanger {
 		}
 	}
 	
-	private void add(String toEdit, String edit) {
+	public void add(String toEdit, String edit) {
 		if (toEdit == null) {
 			stringBufferOfData.append(edit);
 		}
@@ -47,7 +43,7 @@ public class FileChanger {
 		}
 	}
 	
-	private void writeToFile() {
+	public void writeToFile() {
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(file));
 			bw.write(stringBufferOfData.toString());

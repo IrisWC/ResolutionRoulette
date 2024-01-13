@@ -26,13 +26,38 @@ public class Screen extends JPanel implements ActionListener {
 	private String level;
 	private FileChanger[] categories;
 	
+	private FileChanger test;
+	
 	public Screen(Game mainCore, String level) {
 		super();
 		this.mainCore = mainCore;
 		this.level = level;
-		categories = new FileChanger[7];
+		
+		categories = new FileChanger[8];
+		categories[0] = new FileChanger("files/clean.txt");
+		categories[1] = new FileChanger("files/diet.txt");
+		categories[2] = new FileChanger("files/exercise.txt");
+		categories[3] = new FileChanger("files/mindfulness.txt");
+		categories[4] = new FileChanger("files/new skill.txt");
+		categories[5] = new FileChanger("files/punishment.txt");
+		categories[6] = new FileChanger("files/self-care.txt");
+		categories[7] = new FileChanger("files/social.txt");
 		
 		this.setBackground(new Color(230,190,200));
+		
+		test = new FileChanger("files/test.txt");
+		if (test.readFile()) {
+			test.add("i love apples", "i eat monkeys");
+			test.add(null, "i am the all mighty");
+			test.writeToFile();
+		}
+		
+		/*
+		 * i am a monkey
+i love apples
+poop is delicious
+u shall laugh
+		 */
 		
 		
 	}
