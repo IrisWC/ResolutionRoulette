@@ -10,11 +10,10 @@ import java.awt.event.ActionListener;
 import java.awt.font.TextAttribute;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.AttributedString;
-import java.util.Scanner;
 
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
 import core.Game;
@@ -25,6 +24,7 @@ public class Screen extends JPanel implements ActionListener {
 	private Game mainCore;
 	private String level;
 	private FileChanger[] categories;
+	private String[] categoryNames;
 	
 	private FileChanger test;
 	
@@ -32,6 +32,8 @@ public class Screen extends JPanel implements ActionListener {
 		super();
 		this.mainCore = mainCore;
 		this.level = level;
+		
+		this.setBackground(new Color(230,190,200));
 		
 		categories = new FileChanger[8];
 		categories[0] = new FileChanger("files/clean.txt");
@@ -43,7 +45,20 @@ public class Screen extends JPanel implements ActionListener {
 		categories[6] = new FileChanger("files/self-care.txt");
 		categories[7] = new FileChanger("files/social.txt");
 		
-		this.setBackground(new Color(230,190,200));
+		categoryNames = new String[8];
+		for (int i = 0; i < categories.length; i++) {
+			categoryNames[i] = categories[i].toString();
+		}
+        
+		
+		JComboBox<String> categoryBox = new JComboBox<>(categoryNames);	
+		categoryBox.setBounds(543, 244, 140, 50);
+		categoryBox.setBackground(new Color(65, 31, 78));
+		this.setOpaque(true);
+		categoryBox.setForeground(new Color(40, 75, 80));
+		this.add(categoryBox);
+        
+        this.add(categoryBox);
 		
 //		test = new FileChanger("files/test.txt");
 //		if (test.readFile()) {

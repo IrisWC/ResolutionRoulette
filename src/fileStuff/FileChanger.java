@@ -58,6 +58,12 @@ public class FileChanger {
 			System.out.println("Error occured while attempting to write to file: " + e.getMessage());
 		}
 	}
+	
+	public String toString() {
+		int start = file.indexOf("/") + 1;
+		int end = file.indexOf(".");
+		return file.substring(start, end);
+	}
 
     
 }
