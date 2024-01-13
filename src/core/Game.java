@@ -18,7 +18,7 @@ import screens.Screen;
 
 public class Game extends JFrame { //implements ActionListener, WindowListener{
 	
-	public static final int WIDTH = 1280;
+	public static final int WIDTH = 800;
 	public static final int HEIGHT = 800;
 	
 	private JPanel cardPanel;

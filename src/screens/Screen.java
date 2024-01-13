@@ -55,7 +55,7 @@ public class Screen extends JPanel implements ActionListener {
 		categoryBox.setBounds(543, 244, 140, 50);
 		categoryBox.setBackground(new Color(65, 31, 78));
 		this.setOpaque(true);
-		categoryBox.setForeground(new Color(40, 75, 80));
+		categoryBox.setForeground(new Color(200, 200, 200));
 		this.add(categoryBox);
         
         this.add(categoryBox);
@@ -94,8 +94,8 @@ u shall laugh
 //		
 //		g2.setTransform(at);
 		
-		g.drawImage(new ImageIcon("img/orb.gif").getImage(), 200, 400, 144, 143, this);
-		g.drawImage(new ImageIcon("img/orb-shatter.gif").getImage(), 400, 400, 167, 149, this);
+		g.drawImage(new ImageIcon("img/orb.gif").getImage(), 250, 200, 144*2, 143*2, this);
+//		g.drawImage(new ImageIcon("img/orb-shatter.gif").getImage(), 400, 400, 167, 149, this);
 		
 		Font font = null;
 		
@@ -112,9 +112,9 @@ u shall laugh
 		}
 		
 //		g.drawString("mwahahahaha", 100, 100);
-		AttributedString atString= new AttributedString("mwahahahaha");
+		AttributedString atString= new AttributedString("Do a small coloring page today.");
 		atString.addAttribute(TextAttribute.FONT, font);
-		g.drawString(atString.getIterator(), 100, 100);
+		g.drawString(atString.getIterator(), 50, 600);
 		
 	}
 	
