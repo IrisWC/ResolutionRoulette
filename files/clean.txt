@@ -1,5 +1,6 @@
 EASY
 Take out the trash
+Clean one item
 
 MEDIUM
 

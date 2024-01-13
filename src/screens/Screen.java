@@ -29,6 +29,7 @@ public class Screen extends JPanel implements ActionListener {
 	private String[] categoryNames, difficultyNames;
 	private JComboBox<String> categoryBox, difficultyBox;
 	private JButton rollButton;
+	private String display;
 	private FileChanger test;
 	
 	public Screen(Game mainCore, FilesWindow fw, String level) {
@@ -42,6 +43,8 @@ public class Screen extends JPanel implements ActionListener {
 		this.fw = fw;
 		categoryNames = fw.returnNames();
 		difficultyNames = new String[]{"Easy", "Medium", "Hard", "Nightmare"};
+		
+		display = "Please make your selections";
         
 		Font font = null;
 		try {
@@ -136,7 +139,7 @@ u shall laugh
 //		atString.addAttribute(TextAttribute.FONT, font);
 //		g.drawString(atString.getIterator(), 50, 600);
 		
-		AttributedString atString = new AttributedString(test.readFileContents());
+		AttributedString atString = new AttributedString(display);
 		atString.addAttribute(TextAttribute.FONT, font);
 		g.drawString(atString.getIterator(), 60, 600);
 
@@ -171,7 +174,7 @@ u shall laugh
 			test = new FileChanger("files/" + selection + ".txt");
 		}
 		if(e.getSource() == rollButton) {
-			roll();
+			display = roll();
 		}
 	}
 	
@@ -198,7 +201,24 @@ u shall laugh
 		contents = contents.substring(start, end);
 		contents = contents.trim();
 		
-		return "";
+		if(contents.length() == 0) {
+			return "No options available";
+		}
+		
+		int numOptions = 0;
+		contents = contents + "\n";
+		for(int i = 0; i < contents.length(); i++) {
+			if(contents.charAt(i) == '\n')
+				numOptions++;
+		}
+
+		int optionNum = (int)(Math.random() * numOptions);
+		for(int i = 0; i < optionNum; i++) {
+			contents = contents.substring(contents.indexOf('\n') + 1);
+		}
+		contents = contents.substring(0, contents.indexOf('\n'));
+		
+		return contents;
 	}
 	
 }
