@@ -139,6 +139,7 @@ u shall laugh
 		AttributedString atString = new AttributedString(test.readFileContents());
 		atString.addAttribute(TextAttribute.FONT, font);
 		g.drawString(atString.getIterator(), 60, 600);
+
 		
 //		test.deleteFirstChar();
 //		test.add(null, (int)(Math.random() * 10) + "");
@@ -169,6 +170,34 @@ u shall laugh
 			String selection = (String)categoryBox.getSelectedItem();
 			test = new FileChanger("files/" + selection + ".txt");
 		}
+		if(e.getSource() == rollButton) {
+			roll();
+		}
+	}
+	
+	public String roll() {
+		String contents = test.readFileContents();
+		int start = 0; 
+		int end = 0;
+		if(((String)difficultyBox.getSelectedItem()).equals(difficultyNames[0])) {
+			start = contents.indexOf("EASY") + 5;
+			end = contents.indexOf("MEDIUM") - 1;
+		}
+		else if(((String)difficultyBox.getSelectedItem()).equals(difficultyNames[1])) {
+			start = contents.indexOf("MEDIUM") + 7;
+			end = contents.indexOf("HARD") - 1;
+		}
+		else if(((String)difficultyBox.getSelectedItem()).equals(difficultyNames[2])) {
+			start = contents.indexOf("HARD") + 5;
+			end = contents.indexOf("NIGHTMARE") - 1;
+		}
+		else if(((String)difficultyBox.getSelectedItem()).equals(difficultyNames[3])) {
+			start = contents.indexOf("NIGHTMARE") + 10;
+			end = contents.length();
+		}
+		contents = contents.substring(start, end);
+		System.out.println(contents);
+		return "";
 	}
 	
 }
