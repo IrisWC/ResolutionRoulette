@@ -26,8 +26,8 @@ public class Screen extends JPanel implements ActionListener {
 	private Game mainCore;
 	private FilesWindow fw;
 	private String level;
-	private String[] categoryNames;
-	private JComboBox<String> categoryBox;
+	private String[] categoryNames, difficultyNames;
+	private JComboBox<String> categoryBox, difficultyBox;
 	private JButton rollButton;
 	private FileChanger test;
 	
@@ -41,6 +41,7 @@ public class Screen extends JPanel implements ActionListener {
 		
 		this.fw = fw;
 		categoryNames = fw.returnNames();
+		difficultyNames = new String[]{"Easy", "Medium", "Hard", "Nightmare"};
         
 		Font font = null;
 		try {
@@ -55,16 +56,25 @@ public class Screen extends JPanel implements ActionListener {
 		
 		categoryBox = new JComboBox<>(categoryNames);	
 		categoryBox.setFont(font);
-		categoryBox.setBounds(250, 100, 300, 50);
+		categoryBox.setBounds(250, 50, 300, 60);
 		categoryBox.setBackground(new Color(65, 31, 78));
-		this.setOpaque(true);
+		categoryBox.setOpaque(true);
 		categoryBox.setForeground(new Color(200, 200, 200));
 		categoryBox.addActionListener(this);
         this.add(categoryBox);
         
+        difficultyBox = new JComboBox<>(difficultyNames);	
+        difficultyBox.setFont(font);
+        difficultyBox.setBounds(250, 125, 300, 60);
+        difficultyBox.setBackground(new Color(65, 31, 78));
+        difficultyBox.setOpaque(true);
+        difficultyBox.setForeground(new Color(200, 200, 200));
+        difficultyBox.addActionListener(this);
+        this.add(difficultyBox);
+        
         rollButton = new JButton("New challenge");
         rollButton.setFont(font);
-        rollButton.setBounds(200, 650, 400, 50);
+        rollButton.setBounds(200, 650, 400, 60);
         rollButton.addActionListener(this);
         rollButton.setBackground(new Color(65, 31, 78));
         rollButton.setForeground(new Color(200, 200, 200));
