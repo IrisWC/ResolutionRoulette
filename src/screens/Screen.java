@@ -45,13 +45,13 @@ public class Screen extends JPanel implements ActionListener {
 		
 		this.setBackground(new Color(230,190,200));
 		
-		test = new FileChanger("files/test.txt");
-		if (test.readFile()) {
-			test.add("i love apples", "i eat monkeys");
-			test.add(null, "i am the all mighty");
-			test.delete("u shall laugh");
-			test.writeToFile();
-		}
+//		test = new FileChanger("files/test.txt");
+//		if (test.readFile()) {
+//			test.add("i love apples", "i eat monkeys");
+//			test.add(null, "i am the all mighty");
+//			test.delete("u shall laugh");
+//			test.writeToFile();
+//		}
 		
 		/*
 		 * i am a monkey
@@ -78,6 +78,9 @@ u shall laugh
 //		g2.scale(ratioX, ratioY);
 //		
 //		g2.setTransform(at);
+		
+		g.drawImage(new ImageIcon("img/orb.gif").getImage(), 200, 400, 144, 143, this);
+		g.drawImage(new ImageIcon("img/orb-shatter.gif").getImage(), 400, 400, 167, 149, this);
 		
 		Font font = null;
 		
