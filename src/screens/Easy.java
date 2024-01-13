@@ -127,20 +127,21 @@ u shall laugh
 		
 	}
 	
-	public void run() {
-		while(true) {
-			repaint();
-			
-			try {
-				Thread.sleep(20);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			
-		}
-	}
+	
+//	public void run() {
+//		while(true) {
+//			repaint();
+//			
+//			try {
+//				Thread.sleep(20);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			
+//			
+//		}
+//	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
