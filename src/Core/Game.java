@@ -18,8 +18,8 @@ import screens.Easy;
 
 public class Game extends JFrame { //implements ActionListener, WindowListener{
 	
-	public static final int WIDTH = 1600;
-	public static final int HEIGHT = 900;
+	public static final int WIDTH = 1280;
+	public static final int HEIGHT = 800;
 	
 	private JPanel cardPanel;
 	
@@ -28,15 +28,15 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 	public Game() {
 		super("Mwahahaha");
 		setSize(WIDTH, HEIGHT);
-		setBounds(200, 0, WIDTH, HEIGHT);
+		setBounds(100, 0, WIDTH, HEIGHT);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setResizable(false);
 		
 		cardPanel = new JPanel();
 		CardLayout cl = new CardLayout();
 		cardPanel.setLayout(cl);
 		
 		easy = new Easy(this, WIDTH, HEIGHT);
+		cardPanel.add(easy, "easy");
 		
 		add(cardPanel);
 		
