@@ -35,7 +35,7 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 		CardLayout cl = new CardLayout();
 		cardPanel.setLayout(cl);
 		
-		easy = new Easy(this, WIDTH, HEIGHT);
+		easy = new Screen(this, WIDTH, HEIGHT);
 		cardPanel.add(easy, "easy");
 		
 		add(cardPanel);

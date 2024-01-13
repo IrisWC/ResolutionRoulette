@@ -19,11 +19,13 @@ import javax.swing.JPanel;
 
 import Core.Game;
 
-public class Easy extends JPanel implements ActionListener {
+public class Screen extends JPanel implements ActionListener {
 
 	private Game mainCore;
+	private FileChanger[] categories;
+	private int[] coin;
 	
-	public Easy(Game mainCore, int width, int height) {
+	public Screen(Game mainCore, int width, int height) {
 		super();
 		this.mainCore = mainCore;
 		
