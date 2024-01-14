@@ -156,6 +156,10 @@ u shall laugh
 	    		s1 = s.substring(0, split);
 	    		s2 =  s.substring(split+1);
 	    	}
+	    	else if (Character.isWhitespace(s.charAt(split-1))) {
+	    		s1 = s.substring(0, split-1);
+	    		s2 =  s.substring(split);
+	    	}
 	    	else {
 	    		s1 = s.substring(0, split) + "-";
 	    	    s2 = s.substring(split);
