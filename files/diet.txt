@@ -8,11 +8,16 @@ MEDIUM
 Eat 3 cups of vegetables today
 Eat 2 servings of fruit today
 Meal prep a healthy meal
+Eat only balanced meals today
+Drink at least 4 cups of water today
 
 HARD
 Meal prep a week's worth of healthy meals
 Don't eat junk food for a week
+Eat only balanced meals for the week
+Drink at least 8 cups of water today
 
 NIGHTMARE
 Don't eat any junk food for life
 Cut added sugars out of your diet for life
+Make every meal a balanced meal
