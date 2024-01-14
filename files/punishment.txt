@@ -1,17 +1,14 @@
 EASY
-Reroll for a medium task in the same category
 Count to 50
 Read 5 random entries from a dictionary
-Do not eat your 
-favorite snack today
+Do not eat your favorite snack today
 
 MEDIUM
 Stay away from digital electronics for the next 3 hours
 Count to 1000
 Read 10 pages of the dictionary
 Walk up to a stranger and pretend like you know them
-Do not eat your 
-favorite meal today
+Do not eat your favorite meal today
 
 HARD
 Cut off 3 inches of your hair or go bald

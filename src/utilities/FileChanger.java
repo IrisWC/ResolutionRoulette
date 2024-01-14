@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 
 public class FileChanger {
 	
-	private static StringBuffer stringBufferOfData = new StringBuffer();
+	private StringBuffer stringBufferOfData = new StringBuffer();
 	private String file;
 	
 	public FileChanger(String f) {
@@ -22,7 +22,7 @@ public class FileChanger {
 		try {
 			fileToRead = new Scanner(new File(file));
 			for (String line; fileToRead.hasNextLine() && (line = fileToRead.nextLine()) != null; ) {
-				System.out.println(line);
+//				System.out.println(line);
 				stringBufferOfData.append(line).append("\r\n");
 			}
 		} catch (FileNotFoundException e) {

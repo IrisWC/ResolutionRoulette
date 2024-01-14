@@ -1,7 +1,6 @@
 EASY
 Take out the trash
 Clean one item
-Get an air freshener
 Wipe down 1 surface
 
 MEDIUM
@@ -17,5 +16,5 @@ Wipe down 20 surfaces
 
 NIGHTMARE
 Clean 100 people's houses
-Become a skyscraper window cleaner
+Become a skyscraper window cleaner without the protections
 Get hired as a janitor at 10 different places at once
