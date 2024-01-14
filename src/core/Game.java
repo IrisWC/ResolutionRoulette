@@ -17,7 +17,7 @@ import javax.swing.WindowConstants;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
-import fileStuff.FilesWindow;
+import screens.FileEdits;
 import screens.Screen;
 
 public class Game extends JFrame { //implements ActionListener, WindowListener{
@@ -26,7 +26,7 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 	public static final int HEIGHT = 800;
 	
 	private JPanel cardPanel;
-	private FilesWindow fw;
+	private FileEdits fw;
 	private Screen mainScreen;
 	private Menu menu;
 	
@@ -41,7 +41,7 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 		CardLayout cl = new CardLayout();
 		cardPanel.setLayout(cl);
 		
-		fw = new FilesWindow();
+		fw = new FileEdits();
 		
 		
 		

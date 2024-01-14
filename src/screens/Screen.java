@@ -12,6 +12,8 @@ import java.awt.font.TextAttribute;
 import java.io.File;
 import java.io.IOException;
 import java.text.AttributedString;
+import java.util.ArrayList;
+import java.util.Vector;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
@@ -22,16 +24,16 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 
 import core.Game;
-import fileStuff.FileChanger;
-import fileStuff.FilesWindow;
-import comboboxthing.PesonalComboBoxUI;
+import utilities.FileChanger;
+import utilities.PesonalComboBoxUI;
 
 public class Screen extends JPanel implements ActionListener {
 
 	private Game mainCore;
-	private FilesWindow fw;
+	private FileEdits fw;
 	private String level;
-	private String[] categoryNames, difficultyNames;
+	private Vector<String> categoryNames;
+	private String[] difficultyNames;
 	private JComboBox<String> categoryBox, difficultyBox;
 	private JButton rollButton;
 	private String display, punishment;
@@ -43,7 +45,7 @@ public class Screen extends JPanel implements ActionListener {
 //	private static final Color ALICE_BLUE = new Color(237, 245, 253);
 //	private static final Color PERIWINKLE = new Color(181, 189, 241);
 	
-	public Screen(Game mainCore, FilesWindow fw, String level) {
+	public Screen(Game mainCore, FileEdits fw, String level) {
 		super();
 		this.mainCore = mainCore;
 		this.level = level;

@@ -1,4 +1,4 @@
-package comboboxthing;
+package utilities;
 
 import java.awt.Color;
 import java.awt.Component;

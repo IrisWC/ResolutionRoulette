@@ -1,4 +1,4 @@
-package fileStuff;
+package utilities;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
