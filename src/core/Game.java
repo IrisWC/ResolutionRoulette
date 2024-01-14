@@ -42,9 +42,10 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 		CardLayout cl = new CardLayout();
 		cardPanel.setLayout(cl);
 		
-		menu = new Menu(this, WIDTH, HEIGHT);
-		mainScreen = new Screen(this, fw);
+//		menu = new Menu(this, WIDTH, HEIGHT);
 		fw = new FileEdits(this, WIDTH, HEIGHT);
+		mainScreen = new Screen(this, fw);
+		
 		
 		cardPanel.add(mainScreen, "mainScreen");
 		

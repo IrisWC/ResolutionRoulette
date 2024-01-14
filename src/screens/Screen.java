@@ -240,7 +240,7 @@ u shall laugh
 	}
 	
 	public String rollPunishment() {
-		String contents = selected.readPunishments();
+		String contents = new FileChanger("files/punishment.txt").readFileContents();
 		int start = 0; 
 		int end = 0;
 		if(((String)difficultyBox.getSelectedItem()).equals(difficultyNames[0])) {
