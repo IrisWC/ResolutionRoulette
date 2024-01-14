@@ -59,13 +59,13 @@ public class Screen extends JPanel implements ActionListener {
 		punishment = "Then hit \"New Challenge\"";
 		
 		difficultyBox = new JComboBox<>(difficultyNames);	
-        difficultyBox.setBounds(80, 80, 210, 60);
+        difficultyBox.setBounds(80, 50, 210, 60);
         difficultyBox.setUI(new PesonalComboBoxUI(Game.font, Game.PAPAYA_WHIP, Game.EMINENCE));
         difficultyBox.addActionListener(this);
         this.add(difficultyBox);
 		
 		categoryBox = new JComboBox<>(categoryNames);	
-		categoryBox.setBounds(335, 80, 230, 60);
+		categoryBox.setBounds(335, 50, 230, 60);
 //		categoryBox.setBorder(BorderFactory.createEmptyBorder());
 //		categoryBox.setOpaque(true);
 		categoryBox.setUI(new PesonalComboBoxUI(Game.font, Game.PAPAYA_WHIP, Game.EMINENCE));
@@ -74,7 +74,7 @@ public class Screen extends JPanel implements ActionListener {
         
         edit = new JButton("Edit");
         edit.setFont(Game.font.deriveFont(30f));
-        edit.setBounds(610, 80, 110, 60);
+        edit.setBounds(610, 50, 110, 60);
         edit.addActionListener(this);
         edit.setBackground(Game.PAPAYA_WHIP);
         edit.setForeground(Game.EMINENCE);
@@ -84,7 +84,7 @@ public class Screen extends JPanel implements ActionListener {
         
         rollButton = new JButton("New challenge");
         rollButton.setFont(Game.font);
-        rollButton.setBounds(800/2-300/2, 500, 300, 60);
+        rollButton.setBounds(800/2-300/2, 480, 300, 60);
         rollButton.addActionListener(this);
         rollButton.setBackground(Game.PAPAYA_WHIP);
         rollButton.setForeground(Game.EMINENCE);
@@ -113,14 +113,12 @@ u shall laugh
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
-		g.drawImage(new ImageIcon("img/orb.gif").getImage(), 250, 180, 144*2, 143*2, this);
+		g.drawImage(new ImageIcon("img/orb.gif").getImage(), 250, 150, 144*2, 143*2, this);
 		
 		g.setColor(Game.PAPAYA_WHIP);
 		
-//		centerString(g, new Rectangle(), display, Game.font.deriveFont(25f), 640);
-//		centerString(g, new Rectangle(), punishment, Game.font.deriveFont(25f), 700);
-		centerString(g, new Rectangle(), "sjflkasjd flsaj flkasj fdkljas lkdf jkals flasgajkg hasg lkas jgkls iow eifjasidl jwoilsaj  lksjflksf"
-				, Game.font.deriveFont(25f), 600);
+		centerString(g, new Rectangle(), display, Game.font.deriveFont(25f), 600);
+		centerString(g, new Rectangle(), punishment, Game.font.deriveFont(25f), 700);
 		
 		
 //		test.deleteFirstChar();
@@ -133,9 +131,18 @@ u shall laugh
 	    FontRenderContext frc = new FontRenderContext(null, true, true);
 	    Rectangle2D r2D = font.getStringBounds(s, frc);
 	    int rWidth = (int) Math.round(r2D.getWidth());
-	    System.out.println(s);
 	    
-	    if (rWidth > 780) {
+	    if (rWidth < 780) {
+	    	int a = (800 / 2) - (rWidth / 2);
+
+		    AttributedString atString = new AttributedString(s);
+			atString.addAttribute(TextAttribute.FONT, font);
+			
+		    g.drawString(atString.getIterator(), r.x + a, y);
+	    }
+	    else {
+	    	String s1 = "";
+	    	String s2 = "";
 	    	int l = s.length();
 	    	int split = 0;
 	    	if (l%2 == 0) {
@@ -146,24 +153,29 @@ u shall laugh
 	    	}
 	    	
 	    	if (Character.isWhitespace(s.charAt(split))) {
-	    		s = s.substring(0, split) + "\n" + s.substring(split+1);
+	    		s1 = s.substring(0, split);
+	    		s2 =  s.substring(split+1);
 	    	}
-	    	else
-	    		s = s.substring(0, split) + "- \n" + s.substring(split);
+	    	else {
+	    		s1 = s.substring(0, split) + "-";
+	    	    s2 = s.substring(split);
+	    	}
 	    	
 	    	r2D = font.getStringBounds(s.substring(0, split), frc);
 		    rWidth = (int) Math.round(r2D.getWidth());
-	    }
-	    System.out.println("split");
-	    System.out.println(s);
-	    System.out.println();
-	    
-	    int a = (800 / 2) - (rWidth / 2);
+		    
+		    int a = (800 / 2) - (rWidth / 2);
 
-	    AttributedString atString = new AttributedString(s);
-		atString.addAttribute(TextAttribute.FONT, font);
-		
-	    g.drawString(atString.getIterator(), r.x + a, y);
+		    AttributedString atString1 = new AttributedString(s1);
+			atString1.addAttribute(TextAttribute.FONT, font);
+		    g.drawString(atString1.getIterator(), r.x + a, y);
+		    
+		    AttributedString atString2 = new AttributedString(s2);
+			atString2.addAttribute(TextAttribute.FONT, font);
+		    g.drawString(atString2.getIterator(), r.x + a, y+27);
+	    }
+	    
+	    
 	}
 	
 	public void drawCenteredString(Graphics g, String text, Rectangle rect, Font font, int y) {
