@@ -210,6 +210,7 @@ u shall laugh
 			contents = contents.substring(contents.indexOf('\n') + 1);
 		}
 		contents = contents.substring(0, contents.indexOf('\n'));
+		contents = "Task: " + contents;
 		
 		return contents;
 	}
@@ -253,6 +254,7 @@ u shall laugh
 			contents = contents.substring(contents.indexOf('\n') + 1);
 		}
 		contents = contents.substring(0, contents.indexOf('\n'));
+		contents = "Punishment: " + contents;
 		
 		return contents;
 	}
