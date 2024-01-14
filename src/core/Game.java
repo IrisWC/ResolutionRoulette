@@ -71,7 +71,7 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 		mainScreen = new Screen(this, edit);
 		credits = new Credits(this);
 		
-		cardPanel.add(menu, "menu");
+//		cardPanel.add(menu, "menu");
 		cardPanel.add(edit, "edit");
 		cardPanel.add(mainScreen, "mainScreen");
 		cardPanel.add(credits, "credits");

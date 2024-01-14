@@ -8,12 +8,15 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Vector;
 
+import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
 
 import core.Game;
 import utilities.FileChanger;
@@ -37,7 +40,7 @@ public class FileEdits extends JPanel implements ActionListener{
 		font = Game.font.deriveFont(30f);
 		
 		back = new JButton();
-		back.setBounds(43, 43, 75, 75);
+		back.setBounds(45, 45, 70, 70);
 		back.setOpaque(false);
 		back.setContentAreaFilled(false);
 		back.setBorderPainted(false);
@@ -68,20 +71,20 @@ public class FileEdits extends JPanel implements ActionListener{
 		difficultyNames = new String[]{"Easy", "Medium", "Hard", "Nightmare"};
 		
 		difficultyBox = new JComboBox<>(difficultyNames);	
-        difficultyBox.setBounds(80, 200, 300, 60);
+        difficultyBox.setBounds(80, 180, 180, 60);
         difficultyBox.setUI(new PesonalComboBoxUI(font, Game.PAPAYA_WHIP, Game.EMINENCE));
         difficultyBox.addActionListener(this);
         this.add(difficultyBox);
 		
 		categoryBox = new JComboBox<>(categoryNames);	
-		categoryBox.setBounds(420, 200, 300, 60);
+		categoryBox.setBounds(300, 180, 200, 60);
 		categoryBox.setUI(new PesonalComboBoxUI(font, Game.PAPAYA_WHIP, Game.EMINENCE));
 		categoryBox.addActionListener(this);
         this.add(categoryBox);
         
         confirm = new JButton("Confirm");
         confirm.setFont(font);
-        confirm.setBounds(200, 480, 400, 60);
+        confirm.setBounds(545, 180, 170, 60);
         confirm.addActionListener(this);
         confirm.setBackground(Game.PAPAYA_WHIP);
         confirm.setForeground(Game.EMINENCE);
@@ -123,11 +126,37 @@ public class FileEdits extends JPanel implements ActionListener{
 			selected = new FileChanger("files/" + selection + ".txt");
 		}
 		if(e.getSource() == confirm) {
-//			setTextBox();
+			setTextBox();
 		}
 		if(e.getSource() == back) {
 			mainCore.switchScreen("mainScreen");
 		}
+	}
+	
+	public void setTextBox() {
+//		text = new JTextArea(10, 20);
+//	    text.setLineWrap(true);
+//	    text.setWrapStyleWord(true);
+//	    JScrollPane textPane = new JScrollPane(text,
+//	              ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+//	              ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+	    
+	   
+//	    this.add(text);
+	    
+//	    Box box1 = Box.createVerticalBox();
+//	    box1.add(Box.createVerticalStrut(10));
+//	    box1.add(textPane);
+//	    box1.add(Box.createVerticalStrut(10));
+////	    box1.add(markedPane);
+//	    box1.add(Box.createVerticalStrut(10));
+////	    box1.add(go);
+	    
+//	    text.setText(roll());
+//	    text.setText("Hello!!!");
+		
+		 JTextArea area = new JTextArea();
+		 this.add(area);
 	}
 	
 	public String roll() {
