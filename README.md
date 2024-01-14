@@ -1,4 +1,4 @@
-#Resolution Roulette
+# Resolution Roulette
 
 ## Try it out!
 To try out the project, first download everything as a zip folder (click on the green "Code" button, then click "Download ZIP"). 
