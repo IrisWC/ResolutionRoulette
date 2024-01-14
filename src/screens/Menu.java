@@ -11,13 +11,10 @@ public class Menu extends JPanel implements ActionListener{
 	
 	private Game mainCore;
 	private JButton start, credits;
-	private int w, h;
 	
-	public Menu(Game mainCore, int w, int h) {
+	public Menu(Game mainCore) {
 		super();
 		this.mainCore = mainCore;
-		this.w = w;
-		this.h = h;
 		
 		setLayout(null);
 		
@@ -41,7 +38,7 @@ public class Menu extends JPanel implements ActionListener{
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
-		g.drawImage(new ImageIcon("img/menu.gif").getImage(), 0, 0, w, h, this);
+		g.drawImage(new ImageIcon("img/menu.gif").getImage(), 0, 0, Game.WIDTH, Game.IMG_HEIGHT, this);
 	}
 	
 	public void run() {

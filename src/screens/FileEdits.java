@@ -1,6 +1,7 @@
 package screens;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -20,18 +22,27 @@ import utilities.PesonalComboBoxUI;
 public class FileEdits extends JPanel implements ActionListener{
 
 	private Game mainCore;
-	private int w, h;
 	private FileChanger[] categories;
 	private String[] categoryNames, difficultyNames;
 	private JComboBox<String> categoryBox, difficultyBox;
 	private FileChanger selected;
+	private JButton confirm, back;
 	private JTextArea text;
+	private Font font;
 	
-	public FileEdits(Game mainCore, int w, int h) {
+	public FileEdits(Game mainCore) {
 		super();
 		this.mainCore = mainCore;
-		this.w = w;
-		this.h = h;
+		this.setLayout(null);
+		font = Game.font.deriveFont(30f);
+		
+		back = new JButton();
+		back.setBounds(43, 43, 75, 75);
+		back.setOpaque(false);
+		back.setContentAreaFilled(false);
+		back.setBorderPainted(false);
+		back.addActionListener(this);
+		add(back);
 		
 //		categories = new ArrayList<FileChanger>();
 //		categories.add(new FileChanger("files/clean.txt"));
@@ -57,24 +68,32 @@ public class FileEdits extends JPanel implements ActionListener{
 		difficultyNames = new String[]{"Easy", "Medium", "Hard", "Nightmare"};
 		
 		difficultyBox = new JComboBox<>(difficultyNames);	
-        difficultyBox.setBounds(50, 50, 300, 60);
-        difficultyBox.setUI(new PesonalComboBoxUI(Game.font, Game.PAPAYA_WHIP, Game.EMINENCE));
+        difficultyBox.setBounds(80, 200, 300, 60);
+        difficultyBox.setUI(new PesonalComboBoxUI(font, Game.PAPAYA_WHIP, Game.EMINENCE));
         difficultyBox.addActionListener(this);
         this.add(difficultyBox);
 		
 		categoryBox = new JComboBox<>(categoryNames);	
-		categoryBox.setBounds(450, 50, 300, 60);
-//		categoryBox.setBorder(BorderFactory.createEmptyBorder());
-//		categoryBox.setOpaque(true);
-		categoryBox.setUI(new PesonalComboBoxUI(Game.font, Game.PAPAYA_WHIP, Game.EMINENCE));
+		categoryBox.setBounds(420, 200, 300, 60);
+		categoryBox.setUI(new PesonalComboBoxUI(font, Game.PAPAYA_WHIP, Game.EMINENCE));
 		categoryBox.addActionListener(this);
         this.add(categoryBox);
+        
+        confirm = new JButton("Confirm");
+        confirm.setFont(font);
+        confirm.setBounds(200, 480, 400, 60);
+        confirm.addActionListener(this);
+        confirm.setBackground(Game.PAPAYA_WHIP);
+        confirm.setForeground(Game.EMINENCE);
+        confirm.setOpaque(true);
+        confirm.setBorderPainted(false);
+        this.add(confirm);
 	}
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
-		g.drawImage(new ImageIcon("img/edit.png").getImage(), 0, 0, w, h, this);
+		g.drawImage(new ImageIcon("img/edit.png").getImage(), 0, 0, Game.WIDTH, Game.IMG_HEIGHT, this);
 	}
 	
 	public String[] returnNames() {
@@ -103,9 +122,12 @@ public class FileEdits extends JPanel implements ActionListener{
 			String selection = (String)categoryBox.getSelectedItem();
 			selected = new FileChanger("files/" + selection + ".txt");
 		}
-//		if(e.getSource() == back) {
-//			mainCore.switchScreen("mainScreen");
-//		}
+		if(e.getSource() == confirm) {
+//			setTextBox();
+		}
+		if(e.getSource() == back) {
+			mainCore.switchScreen("mainScreen");
+		}
 	}
 	
 	public String roll() {

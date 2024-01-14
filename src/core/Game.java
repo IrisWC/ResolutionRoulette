@@ -27,7 +27,9 @@ import screens.Credits;
 public class Game extends JFrame { //implements ActionListener, WindowListener{
 	
 	public static final int WIDTH = 800;
-	public static final int HEIGHT = 800;
+	public static final int HEIGHT = 825;
+	
+	public static final int IMG_HEIGHT = 800;
 	
 	public static final Color PAPAYA_WHIP = new Color(255, 236, 206);
 	public static final Color EMINENCE = new Color(91, 58, 124);
@@ -64,12 +66,12 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 		CardLayout cl = new CardLayout();
 		cardPanel.setLayout(cl);
 		
-		menu = new Menu(this, WIDTH, HEIGHT);
-		edit = new FileEdits(this, WIDTH, HEIGHT);
+		menu = new Menu(this);
+		edit = new FileEdits(this);
 		mainScreen = new Screen(this, edit);
-		credits = new Credits(this, WIDTH, HEIGHT);
+		credits = new Credits(this);
 		
-//		cardPanel.add(menu, "menu");
+		cardPanel.add(menu, "menu");
 		cardPanel.add(edit, "edit");
 		cardPanel.add(mainScreen, "mainScreen");
 		cardPanel.add(credits, "credits");
