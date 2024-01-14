@@ -172,7 +172,7 @@ u shall laugh
 		if (selected == null) {
 			selected = new FileChanger("files/clean.txt");
 		}
-		String contents = selected.readFileContents();
+		String contents = selected.readFile();
 		int start = 0; 
 		int end = 0;
 		if(((String)difficultyBox.getSelectedItem()).equals(difficultyNames[0])) {
@@ -215,7 +215,7 @@ u shall laugh
 	}
 	
 	public String rollPunishment() {
-		String contents = new FileChanger("files/punishment.txt").readFileContents();
+		String contents = new FileChanger("files/punishment.txt").readFile();
 		int start = 0; 
 		int end = 0;
 		if(((String)difficultyBox.getSelectedItem()).equals(difficultyNames[0])) {
