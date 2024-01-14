@@ -212,7 +212,7 @@ u shall laugh
 		}
 		else if(((String)difficultyBox.getSelectedItem()).equals(difficultyNames[3])) {
 			start = contents.indexOf("NIGHTMARE") + 10;
-			end = contents.length();
+			end = contents.length()-1;
 		}
 		contents = contents.substring(start, end);
 		contents = contents.trim();
@@ -256,7 +256,7 @@ u shall laugh
 		}
 		else if(((String)difficultyBox.getSelectedItem()).equals(difficultyNames[3])) {
 			start = contents.indexOf("NIGHTMARE") + 10;
-			end = contents.length();
+			end = contents.length()-1;
 		}
 		contents = contents.substring(start, end);
 		contents = contents.trim();
