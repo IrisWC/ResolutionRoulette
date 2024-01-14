@@ -90,6 +90,23 @@ public class FileChanger {
 		}
 		return contents;
 	}
+	
+	public String readPunishments() {
+		String contents = "";
+		Scanner fileToRead = null;
+		try {
+			fileToRead = new Scanner(new File("files/punishment.txt"));
+			for (String line; fileToRead.hasNextLine() && (line = fileToRead.nextLine()) != null; ) {
+				contents = contents + line + "\r\n";
+			}
+		} catch (FileNotFoundException e) {
+			System.out.println("The file " + file + " could not be found! " + e.getMessage());
+			return "";
+		} finally {
+			fileToRead.close();
+		}
+		return contents;
+	}
 
     
 }

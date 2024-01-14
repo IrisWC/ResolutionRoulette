@@ -34,7 +34,7 @@ public class Screen extends JPanel implements ActionListener {
 	private String[] categoryNames, difficultyNames;
 	private JComboBox<String> categoryBox, difficultyBox;
 	private JButton rollButton;
-	private String display;
+	private String display, punishment;
 	private FileChanger selected;
 	private Font font;
 	
@@ -59,6 +59,7 @@ public class Screen extends JPanel implements ActionListener {
 		difficultyNames = new String[]{"Easy", "Medium", "Hard", "Nightmare"};
 		
 		display = "Please make your selections";
+		punishment = "Then hit \"New Challenge\"";
         
 		font = null;
 		try {
@@ -142,6 +143,11 @@ u shall laugh
 		g.setColor(PAPAYA_WHIP);
 		g.drawString(atString.getIterator(), 60, 600);
 		
+		AttributedString pString = new AttributedString(punishment);
+		pString.addAttribute(TextAttribute.FONT, font);
+		g.setColor(PAPAYA_WHIP);
+		g.drawString(pString.getIterator(), 60, 660);
+		
 //		test.deleteFirstChar();
 //		test.add(null, (int)(Math.random() * 10) + "");
 //		test.writeToFile();
@@ -173,6 +179,7 @@ u shall laugh
 		}
 		if(e.getSource() == rollButton) {
 			display = roll();
+			punishment = rollPunishment();
 		}
 	}
 	
@@ -181,6 +188,49 @@ u shall laugh
 			selected = new FileChanger("files/clean.txt");
 		}
 		String contents = selected.readFileContents();
+		int start = 0; 
+		int end = 0;
+		if(((String)difficultyBox.getSelectedItem()).equals(difficultyNames[0])) {
+			start = contents.indexOf("EASY") + 5;
+			end = contents.indexOf("MEDIUM") - 1;
+		}
+		else if(((String)difficultyBox.getSelectedItem()).equals(difficultyNames[1])) {
+			start = contents.indexOf("MEDIUM") + 7;
+			end = contents.indexOf("HARD") - 1;
+		}
+		else if(((String)difficultyBox.getSelectedItem()).equals(difficultyNames[2])) {
+			start = contents.indexOf("HARD") + 5;
+			end = contents.indexOf("NIGHTMARE") - 1;
+		}
+		else if(((String)difficultyBox.getSelectedItem()).equals(difficultyNames[3])) {
+			start = contents.indexOf("NIGHTMARE") + 10;
+			end = contents.length();
+		}
+		contents = contents.substring(start, end);
+		contents = contents.trim();
+		
+		if(contents.length() == 0) {
+			return "No options available";
+		}
+		
+		int numOptions = 0;
+		contents = contents + "\n";
+		for(int i = 0; i < contents.length(); i++) {
+			if(contents.charAt(i) == '\n')
+				numOptions++;
+		}
+
+		int optionNum = (int)(Math.random() * numOptions);
+		for(int i = 0; i < optionNum; i++) {
+			contents = contents.substring(contents.indexOf('\n') + 1);
+		}
+		contents = contents.substring(0, contents.indexOf('\n'));
+		
+		return contents;
+	}
+	
+	public String rollPunishment() {
+		String contents = selected.readPunishments();
 		int start = 0; 
 		int end = 0;
 		if(((String)difficultyBox.getSelectedItem()).equals(difficultyNames[0])) {
