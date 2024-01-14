@@ -108,27 +108,8 @@ u shall laugh
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-
-//		Graphics2D g2 = (Graphics2D)g;
-//
-//		int width = getWidth();
-//		int height = getHeight();
-//
-//		double ratioX = (double)width/this.width;
-//		double ratioY = (double)height/this.height;
-//
-//		AffineTransform at = g2.getTransform();
-//		g2.scale(ratioX, ratioY);
-//		
-//		g2.setTransform(at);
 		
 		g.drawImage(new ImageIcon("img/orb.gif").getImage(), 250, 150, 144*2, 143*2, this);
-//		g.drawImage(new ImageIcon("img/orb-shatter.gif").getImage(), 400, 400, 167, 149, this);
-		
-//		g.drawString("mwahahahaha", 100, 100);
-//		AttributedString atString= new AttributedString("Do a small coloring page today.");
-//		atString.addAttribute(TextAttribute.FONT, font);
-//		g.drawString(atString.getIterator(), 50, 600);
 		
 		AttributedString atString = new AttributedString(display);
 		atString.addAttribute(TextAttribute.FONT, Game.font);

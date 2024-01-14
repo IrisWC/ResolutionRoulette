@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 import core.Game;
 import utilities.FileChanger;
@@ -23,14 +24,14 @@ public class FileEdits extends JPanel implements ActionListener{
 	private FileChanger[] categories;
 	private String[] categoryNames, difficultyNames;
 	private JComboBox<String> categoryBox, difficultyBox;
+	private FileChanger selected;
+	private JTextArea text;
 	
 	public FileEdits(Game mainCore, int w, int h) {
 		super();
 		this.mainCore = mainCore;
 		this.w = w;
 		this.h = h;
-		
-		this.setBackground(new Color(12,4,43));
 		
 //		categories = new ArrayList<FileChanger>();
 //		categories.add(new FileChanger("files/clean.txt"));
@@ -94,12 +95,50 @@ public class FileEdits extends JPanel implements ActionListener{
 //	}
 	
 	
-	
-	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		if(e.getSource() == categoryBox) {
+//			setUpBox();
+			String selection = (String)categoryBox.getSelectedItem();
+			selected = new FileChanger("files/" + selection + ".txt");
+		}
+//		if(e.getSource() == back) {
+//			mainCore.switchScreen("mainScreen");
+//		}
+	}
+	
+	public String roll() {
+		if (selected == null) {
+			selected = new FileChanger("files/clean.txt");
+		}
+		String contents = selected.readFileContents();
+		int start = 0; 
+		int end = 0;
+		if(((String)difficultyBox.getSelectedItem()).equals(difficultyNames[0])) {
+			start = contents.indexOf("EASY") + 5;
+			end = contents.indexOf("MEDIUM") - 1;
+		}
+		else if(((String)difficultyBox.getSelectedItem()).equals(difficultyNames[1])) {
+			start = contents.indexOf("MEDIUM") + 7;
+			end = contents.indexOf("HARD") - 1;
+		}
+		else if(((String)difficultyBox.getSelectedItem()).equals(difficultyNames[2])) {
+			start = contents.indexOf("HARD") + 5;
+			end = contents.indexOf("NIGHTMARE") - 1;
+		}
+		else if(((String)difficultyBox.getSelectedItem()).equals(difficultyNames[3])) {
+			start = contents.indexOf("NIGHTMARE") + 10;
+			end = contents.length();
+		}
+		contents = contents.substring(start, end);
+		contents = contents.trim();
 		
+		if(contents.length() == 0) {
+			return "No options available";
+		}
+		
+		return contents;
 	}
 
 }
