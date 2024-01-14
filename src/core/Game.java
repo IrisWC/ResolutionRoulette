@@ -3,6 +3,8 @@ package core;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.AffineTransform;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
@@ -26,6 +28,10 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 800;
 	
+	public static final Color PAPAYA_WHIP = new Color(255, 236, 206);
+	public static final Color EMINENCE = new Color(91, 58, 124);
+	public static Font font;
+	
 	private JPanel cardPanel;
 	private FileEdits fw;
 	private Screen mainScreen;
@@ -37,6 +43,16 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 		setBounds(100, 0, WIDTH, HEIGHT);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
+		
+		try {
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/PixelifySans-VariableFont_wght.ttf")).deriveFont(48f);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FontFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		cardPanel = new JPanel();
 		CardLayout cl = new CardLayout();
