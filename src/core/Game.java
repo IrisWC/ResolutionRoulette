@@ -42,7 +42,7 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 	public Game() {
 		super("Resolution Roulette");
 		
-		ImageIcon img = new ImageIcon("img/orb.gif");
+		ImageIcon img = new ImageIcon("img/orb-frame1.png");
 		setIconImage(img.getImage());
 		
 		setSize(WIDTH, HEIGHT);
