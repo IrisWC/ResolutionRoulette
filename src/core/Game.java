@@ -19,6 +19,7 @@ import javax.swing.border.LineBorder;
 
 import screens.FileEdits;
 import screens.Screen;
+import screens.Menu;
 
 public class Game extends JFrame { //implements ActionListener, WindowListener{
 	
@@ -41,11 +42,10 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 		CardLayout cl = new CardLayout();
 		cardPanel.setLayout(cl);
 		
-		fw = new FileEdits();
+		menu = new Menu(this, WIDTH, HEIGHT);
+		mainScreen = new Screen(this, fw);
+		fw = new FileEdits(this, WIDTH, HEIGHT);
 		
-		
-		
-		mainScreen = new Screen(this, fw, "mainScreen");
 		cardPanel.add(mainScreen, "mainScreen");
 		
 		add(cardPanel);

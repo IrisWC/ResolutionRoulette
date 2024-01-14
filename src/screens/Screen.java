@@ -45,10 +45,9 @@ public class Screen extends JPanel implements ActionListener {
 //	private static final Color ALICE_BLUE = new Color(237, 245, 253);
 //	private static final Color PERIWINKLE = new Color(181, 189, 241);
 	
-	public Screen(Game mainCore, FileEdits fw, String level) {
+	public Screen(Game mainCore, FileEdits fw) {
 		super();
 		this.mainCore = mainCore;
-		this.level = level;
 		
 //		this.setBackground(new Color(230,190,200));
 		this.setBackground(new Color(12,4,43));
@@ -171,11 +170,20 @@ u shall laugh
 //			
 //		}
 //	}
+	
+	public void setUpBox() {
+		categoryBox = new JComboBox<>(categoryNames);	
+		categoryBox.setBounds(450, 50, 300, 60);
+		categoryBox.setUI(new PesonalComboBoxUI(font, PAPAYA_WHIP, EMINENCE));
+		categoryBox.addActionListener(this);
+        this.add(categoryBox);
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource() == categoryBox) {
+			setUpBox();
 			String selection = (String)categoryBox.getSelectedItem();
 			selected = new FileChanger("files/" + selection + ".txt");
 		}
