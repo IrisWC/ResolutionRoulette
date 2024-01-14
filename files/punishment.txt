@@ -1,14 +1,21 @@
 EASY
+Reroll for 2 easy tasks
 Count to 50
 Read 5 random entries from a dictionary
 Do not eat your favorite snack today
+Write a paragraph about something of your favorite without using the letter 'E'
+Take a cold shower
+No social media for the rest of the day
 
 MEDIUM
+Reroll for 2 medium tasks
 Stay away from digital electronics for the next 3 hours
 Count to 1000
 Read 10 pages of the dictionary
 Walk up to a stranger and pretend like you know them
 Do not eat your favorite meal today
+Handwrite a 3-page essay on a topic chosen by someone else
+Do 100 push-ups without a break
 
 HARD
 Cut off 3 inches of your hair or go bald
@@ -16,10 +23,12 @@ Stay off any digital electronics for the next day
 Listen to a children’s song on repeat for 1 hour
 Count to 10000
 Do not eat today
+Give a 20-minute impromptu speech on a random topic
 
 NIGHTMARE
 Count to 1 million
-Read the dictionary in 10 languages
+Read the dictionary 10 times, consecutively
 Listen to an alarm blaring for 100 hours
 Walk up to 100 strangers and convince them you are delusional
 STARVE TO DEATH
+Stay off any digital electronics for life

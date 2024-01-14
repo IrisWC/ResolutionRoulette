@@ -2,19 +2,26 @@ EASY
 Take out the trash
 Clean one item
 Wipe down 1 surface
+Dust a shelf
 
 MEDIUM
 Clean your desk
 Sweep/vacuum the floor
 Wipe the window
 Do a load of laundry
+Do a load of laundry
+Clean out the refrigerator
 
 HARD
 Completely clean an entire room
 Reorganize your living space
 Wipe down 20 surfaces
+Scrub the bathroom tiles
+Clean all kitchen appliances
 
 NIGHTMARE
 Clean 100 people's houses
 Become a skyscraper window cleaner without the protections
 Get hired as a janitor at 10 different places at once
+Clean an abandoned, dilapidated building from top to bottom
+Deep clean your city's sewers
