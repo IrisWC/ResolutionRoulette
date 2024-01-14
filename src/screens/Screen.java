@@ -35,7 +35,7 @@ public class Screen extends JPanel implements ActionListener {
 	private JComboBox<String> categoryBox, difficultyBox;
 	private JButton rollButton;
 	private String display;
-	private FileChanger test;
+	private FileChanger selected;
 	private Font font;
 	
 	private static final Color PAPAYA_WHIP = new Color(255, 236, 206);
@@ -53,6 +53,8 @@ public class Screen extends JPanel implements ActionListener {
 		this.setLayout(null);
 		
 		this.fw = fw;
+//		selected = FileChanger();
+		
 		categoryNames = fw.returnNames();
 		difficultyNames = new String[]{"Easy", "Medium", "Hard", "Nightmare"};
 		
@@ -167,7 +169,7 @@ u shall laugh
 		// TODO Auto-generated method stub
 		if(e.getSource() == categoryBox) {
 			String selection = (String)categoryBox.getSelectedItem();
-			test = new FileChanger("files/" + selection + ".txt");
+			selected = new FileChanger("files/" + selection + ".txt");
 		}
 		if(e.getSource() == rollButton) {
 			display = roll();
@@ -175,7 +177,10 @@ u shall laugh
 	}
 	
 	public String roll() {
-		String contents = test.readFileContents();
+		if (selected == null) {
+			selected = new FileChanger("files/clean.txt");
+		}
+		String contents = selected.readFileContents();
 		int start = 0; 
 		int end = 0;
 		if(((String)difficultyBox.getSelectedItem()).equals(difficultyNames[0])) {
