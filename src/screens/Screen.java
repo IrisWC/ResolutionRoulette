@@ -70,13 +70,13 @@ public class Screen extends JPanel implements ActionListener {
 		}
 		
 		difficultyBox = new JComboBox<>(difficultyNames);	
-        difficultyBox.setBounds(250, 50, 300, 60);
+        difficultyBox.setBounds(50, 50, 300, 60);
         difficultyBox.setUI(new PesonalComboBoxUI(font, PAPAYA_WHIP, EMINENCE));
         difficultyBox.addActionListener(this);
         this.add(difficultyBox);
 		
 		categoryBox = new JComboBox<>(categoryNames);	
-		categoryBox.setBounds(250, 125, 300, 60);
+		categoryBox.setBounds(450, 50, 300, 60);
 //		categoryBox.setBorder(BorderFactory.createEmptyBorder());
 //		categoryBox.setOpaque(true);
 		categoryBox.setUI(new PesonalComboBoxUI(font, PAPAYA_WHIP, EMINENCE));
@@ -85,7 +85,7 @@ public class Screen extends JPanel implements ActionListener {
         
         rollButton = new JButton("New challenge");
         rollButton.setFont(font);
-        rollButton.setBounds(200, 650, 400, 60);
+        rollButton.setBounds(200, 480, 400, 60);
         rollButton.addActionListener(this);
         rollButton.setBackground(PAPAYA_WHIP);
         rollButton.setForeground(EMINENCE);
@@ -127,7 +127,7 @@ u shall laugh
 //		
 //		g2.setTransform(at);
 		
-		g.drawImage(new ImageIcon("img/orb.gif").getImage(), 250, 200, 144*2, 143*2, this);
+		g.drawImage(new ImageIcon("img/orb.gif").getImage(), 250, 150, 144*2, 143*2, this);
 //		g.drawImage(new ImageIcon("img/orb-shatter.gif").getImage(), 400, 400, 167, 149, this);
 		
 //		g.drawString("mwahahahaha", 100, 100);
