@@ -38,8 +38,8 @@ public class Screen extends JPanel implements ActionListener {
 	private FileChanger selected;
 	private Font font;
 	
-	private static final Color PAPAYA_WHIP = new Color(255, 236, 206);
-	private static final Color EMINENCE = new Color(91, 58, 124);
+	protected static final Color PAPAYA_WHIP = new Color(255, 236, 206);
+	protected static final Color EMINENCE = new Color(91, 58, 124);
 //	private static final Color ALICE_BLUE = new Color(237, 245, 253);
 //	private static final Color PERIWINKLE = new Color(181, 189, 241);
 	

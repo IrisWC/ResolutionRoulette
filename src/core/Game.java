@@ -27,7 +27,8 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 	
 	private JPanel cardPanel;
 	private FilesWindow fw;
-	private Screen easy, medium, hard, nightmare;
+	private Screen mainScreen;
+	private Menu menu;
 	
 	public Game() {
 		super("Mwahahaha");
@@ -42,8 +43,10 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 		
 		fw = new FilesWindow();
 		
-		easy = new Screen(this, fw, "easy");
-		cardPanel.add(easy, "easy");
+		
+		
+		mainScreen = new Screen(this, fw, "mainScreen");
+		cardPanel.add(mainScreen, "mainScreen");
 		
 		add(cardPanel);
 		
