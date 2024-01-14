@@ -175,13 +175,14 @@ public class FileEdits extends JPanel implements ActionListener{
 	
 	public void saveEdits() {
 		selected.add(textContents, text.getText());
+		selected.writeToFile();
 	}
 	
 	public String roll() {
 		if (selected == null) {
 			selected = new FileChanger("files/clean.txt");
 		}
-		String contents = selected.readFileContents();
+		String contents = selected.readFile();
 		int start = 0; 
 		int end = 0;
 		if(((String)difficultyBox.getSelectedItem()).equals(difficultyNames[0])) {

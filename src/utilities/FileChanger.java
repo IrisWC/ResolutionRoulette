@@ -17,7 +17,7 @@ public class FileChanger {
 		file = f;
 	}
 	
-	public boolean readFile() {
+	public String readFile() {
 		Scanner fileToRead = null;
 		try {
 			fileToRead = new Scanner(new File(file));
@@ -27,11 +27,11 @@ public class FileChanger {
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println("The file " + file + " could not be found! " + e.getMessage());
-			return false;
+			return null;
 		} finally {
 			fileToRead.close();
-			return true;
 		}
+		return stringBufferOfData.toString();
 	}
 	
 	public void add(String toEdit, String edit) {
@@ -75,23 +75,6 @@ public class FileChanger {
 		int start = file.indexOf("/") + 1;
 		int end = file.indexOf(".");
 		return file.substring(start, end);
-	}
-	
-	public String readFileContents() {
-		String contents = "";
-		Scanner fileToRead = null;
-		try {
-			fileToRead = new Scanner(new File(file));
-			for (String line; fileToRead.hasNextLine() && (line = fileToRead.nextLine()) != null; ) {
-				contents = contents + line + "\r\n";
-			}
-		} catch (FileNotFoundException e) {
-			System.out.println("The file " + file + " could not be found! " + e.getMessage());
-			return "";
-		} finally {
-			fileToRead.close();
-		}
-		return contents;
 	}
 
     
