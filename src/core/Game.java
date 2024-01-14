@@ -53,7 +53,7 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 		setResizable(false);
 		
 		try {
-			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/PixelifySans-VariableFont_wght.ttf")).deriveFont(40f);
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/PixelifySans-VariableFont_wght.ttf")).deriveFont(35f);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -72,7 +72,7 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 		credits = new Credits(this);
 		
 //		cardPanel.add(menu, "menu");
-		cardPanel.add(edit, "edit");
+//		cardPanel.add(edit, "edit");
 		cardPanel.add(mainScreen, "mainScreen");
 		cardPanel.add(credits, "credits");
 		

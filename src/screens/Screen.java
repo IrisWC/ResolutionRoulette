@@ -59,13 +59,13 @@ public class Screen extends JPanel implements ActionListener {
 		punishment = "Then hit \"New Challenge\"";
 		
 		difficultyBox = new JComboBox<>(difficultyNames);	
-        difficultyBox.setBounds(50, 50, 240, 60);
+        difficultyBox.setBounds(80, 80, 210, 60);
         difficultyBox.setUI(new PesonalComboBoxUI(Game.font, Game.PAPAYA_WHIP, Game.EMINENCE));
         difficultyBox.addActionListener(this);
         this.add(difficultyBox);
 		
 		categoryBox = new JComboBox<>(categoryNames);	
-		categoryBox.setBounds(330, 50, 260, 60);
+		categoryBox.setBounds(335, 80, 230, 60);
 //		categoryBox.setBorder(BorderFactory.createEmptyBorder());
 //		categoryBox.setOpaque(true);
 		categoryBox.setUI(new PesonalComboBoxUI(Game.font, Game.PAPAYA_WHIP, Game.EMINENCE));
@@ -73,8 +73,8 @@ public class Screen extends JPanel implements ActionListener {
         this.add(categoryBox);
         
         edit = new JButton("Edit");
-        edit.setFont(Game.font.deriveFont(35f));
-        edit.setBounds(630, 50, 120, 60);
+        edit.setFont(Game.font.deriveFont(30f));
+        edit.setBounds(610, 80, 110, 60);
         edit.addActionListener(this);
         edit.setBackground(Game.PAPAYA_WHIP);
         edit.setForeground(Game.EMINENCE);
@@ -84,7 +84,7 @@ public class Screen extends JPanel implements ActionListener {
         
         rollButton = new JButton("New challenge");
         rollButton.setFont(Game.font);
-        rollButton.setBounds(200, 480, 400, 60);
+        rollButton.setBounds(800/2-300/2, 500, 300, 60);
         rollButton.addActionListener(this);
         rollButton.setBackground(Game.PAPAYA_WHIP);
         rollButton.setForeground(Game.EMINENCE);
@@ -113,12 +113,14 @@ u shall laugh
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
-		g.drawImage(new ImageIcon("img/orb.gif").getImage(), 250, 150, 144*2, 143*2, this);
+		g.drawImage(new ImageIcon("img/orb.gif").getImage(), 250, 180, 144*2, 143*2, this);
 		
 		g.setColor(Game.PAPAYA_WHIP);
 		
-		centerString(g, new Rectangle(), display, Game.font.deriveFont(30f), 600);
-		centerString(g, new Rectangle(), punishment, Game.font.deriveFont(30f), 660);
+//		centerString(g, new Rectangle(), display, Game.font.deriveFont(25f), 640);
+//		centerString(g, new Rectangle(), punishment, Game.font.deriveFont(25f), 700);
+		centerString(g, new Rectangle(), "sjflkasjd flsaj flkasj fdkljas lkdf jkals flasgajkg hasg lkas jgkls iow eifjasidl jwoilsaj  lksjflksf"
+				, Game.font.deriveFont(25f), 600);
 		
 		
 //		test.deleteFirstChar();
@@ -131,10 +133,35 @@ u shall laugh
 	    FontRenderContext frc = new FontRenderContext(null, true, true);
 	    Rectangle2D r2D = font.getStringBounds(s, frc);
 	    int rWidth = (int) Math.round(r2D.getWidth());
+	    System.out.println(s);
+	    
+	    if (rWidth > 780) {
+	    	int l = s.length();
+	    	int split = 0;
+	    	if (l%2 == 0) {
+	    		split = l/2;
+	    	}
+	    	else {
+	    		split = l/2+1;
+	    	}
+	    	
+	    	if (Character.isWhitespace(s.charAt(split))) {
+	    		s = s.substring(0, split) + "\n" + s.substring(split+1);
+	    	}
+	    	else
+	    		s = s.substring(0, split) + "- \n" + s.substring(split);
+	    	
+	    	r2D = font.getStringBounds(s.substring(0, split), frc);
+		    rWidth = (int) Math.round(r2D.getWidth());
+	    }
+	    System.out.println("split");
+	    System.out.println(s);
+	    System.out.println();
+	    
 	    int a = (800 / 2) - (rWidth / 2);
 
 	    AttributedString atString = new AttributedString(s);
-		atString.addAttribute(TextAttribute.FONT, Game.font.deriveFont(30f));
+		atString.addAttribute(TextAttribute.FONT, font);
 		
 	    g.drawString(atString.getIterator(), r.x + a, y);
 	}

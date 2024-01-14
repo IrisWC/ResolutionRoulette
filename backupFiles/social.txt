@@ -1,0 +1,17 @@
+EASY
+Compliment someone today
+Learn the name of a stranger today
+
+MEDIUM
+Plan a meetup with a friend
+Meet someone new
+Compliment 3 people today
+
+HARD
+Plan a meetup with a group (3+) of friends
+Meet 5 new people
+Compliment 10 people today
+
+NIGHTMARE
+Befriend 50 new people
+Compliment 200 people today
