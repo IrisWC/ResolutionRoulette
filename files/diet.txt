@@ -1,8 +1,17 @@
 EASY
 Drink 4 oz of water right now
+Eat a serving of vegetables today
+Eat a serving of fruit today
 
 MEDIUM
+Eat 3 cups of vegetables today
+Eat 2 servings of fruit today
+Meal prep a healthy meal
 
 HARD
+Meal prep a week's worth of healthy meals
+Don't eat junk food for a week
 
 NIGHTMARE
+Don't eat any junk food for a year
+Cut added sugars out of your diet for a year
