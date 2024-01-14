@@ -20,6 +20,7 @@ import javax.swing.border.LineBorder;
 import screens.FileEdits;
 import screens.Screen;
 import screens.Menu;
+import screens.Credits;
 
 public class Game extends JFrame { //implements ActionListener, WindowListener{
 	
@@ -30,9 +31,14 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 	private FileEdits fw;
 	private Screen mainScreen;
 	private Menu menu;
+	private Credits credits;
 	
 	public Game() {
-		super("Mwahahaha");
+		super("Resolution Roulette");
+		
+		ImageIcon img = new ImageIcon("img/orb.gif");
+		setIconImage(img.getImage());
+		
 		setSize(WIDTH, HEIGHT);
 		setBounds(100, 0, WIDTH, HEIGHT);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,10 +51,12 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 		menu = new Menu(this, WIDTH, HEIGHT);
 		fw = new FileEdits(this, WIDTH, HEIGHT);
 		mainScreen = new Screen(this, fw);
+		credits = new Credits(this, WIDTH, HEIGHT);
 		
 		cardPanel.add(menu, "menu");
 		cardPanel.add(fw, "fw");
 		cardPanel.add(mainScreen, "mainScreen");
+		cardPanel.add(credits, "credits");
 		
 		add(cardPanel);
 		
