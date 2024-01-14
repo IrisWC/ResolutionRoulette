@@ -156,6 +156,9 @@ public class FileEdits extends JPanel implements ActionListener{
 		if(e.getSource() == confirm) {
 			setTextBox();
 		}
+		if (e.getSource() == done) {
+			saveEdits();
+		}
 		if(e.getSource() == back) {
 			mainCore.switchScreen("mainScreen");
 		}
@@ -165,6 +168,10 @@ public class FileEdits extends JPanel implements ActionListener{
 		done.setVisible(true);
 	    text.setText(roll());
 		textPane.setVisible(true);
+	}
+	
+	public void saveEdits() {
+		
 	}
 	
 	public String roll() {
