@@ -10,14 +10,16 @@ import javax.swing.JFrame;
 
 public class FileChanger {
 	
-	private StringBuffer stringBufferOfData = new StringBuffer();
+	private StringBuffer stringBufferOfData;
 	private String file;
 	
 	public FileChanger(String f) {
 		file = f;
+		stringBufferOfData = new StringBuffer();
 	}
 	
 	public String readFile() {
+		stringBufferOfData = new StringBuffer();
 		Scanner fileToRead = null;
 		try {
 			fileToRead = new Scanner(new File(file));
