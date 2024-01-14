@@ -1,6 +1,7 @@
 package screens;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.Graphics;
@@ -12,14 +13,18 @@ import java.io.File;
 import java.io.IOException;
 import java.text.AttributedString;
 
+import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 import core.Game;
 import fileStuff.FileChanger;
 import fileStuff.FilesWindow;
+import comboboxthing.PesonalComboBoxUI;
 
 public class Screen extends JPanel implements ActionListener {
 
@@ -31,6 +36,12 @@ public class Screen extends JPanel implements ActionListener {
 	private JButton rollButton;
 	private String display;
 	private FileChanger test;
+	private Font font;
+	
+	private static final Color PAPAYA_WHIP = new Color(255, 236, 206);
+	private static final Color EMINENCE = new Color(91, 58, 124);
+//	private static final Color ALICE_BLUE = new Color(237, 245, 253);
+//	private static final Color PERIWINKLE = new Color(181, 189, 241);
 	
 	public Screen(Game mainCore, FilesWindow fw, String level) {
 		super();
@@ -47,7 +58,7 @@ public class Screen extends JPanel implements ActionListener {
 		
 		display = "Please make your selections";
         
-		Font font = null;
+		font = null;
 		try {
 			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/PixelifySans-VariableFont_wght.ttf")).deriveFont(48f);
 		} catch (IOException e) {
@@ -58,30 +69,28 @@ public class Screen extends JPanel implements ActionListener {
 			e.printStackTrace();
 		}
 		
-		categoryBox = new JComboBox<>(categoryNames);	
-		categoryBox.setFont(font);
-		categoryBox.setBounds(250, 50, 300, 60);
-		categoryBox.setBackground(new Color(255, 236, 206));
-		categoryBox.setOpaque(true);
-		categoryBox.setForeground(new Color(91, 58, 124));
-		categoryBox.addActionListener(this);
-        this.add(categoryBox);
-        
-        difficultyBox = new JComboBox<>(difficultyNames);	
-        difficultyBox.setFont(font);
-        difficultyBox.setBounds(250, 125, 300, 60);
-        difficultyBox.setBackground(new Color(255, 236, 206));
-        difficultyBox.setOpaque(true);
-        difficultyBox.setForeground(new Color(91, 58, 124));
+		difficultyBox = new JComboBox<>(difficultyNames);	
+        difficultyBox.setBounds(250, 50, 300, 60);
+        difficultyBox.setUI(new PesonalComboBoxUI(font, PAPAYA_WHIP, EMINENCE));
         difficultyBox.addActionListener(this);
         this.add(difficultyBox);
+		
+		categoryBox = new JComboBox<>(categoryNames);	
+		categoryBox.setBounds(250, 125, 300, 60);
+//		categoryBox.setBorder(BorderFactory.createEmptyBorder());
+//		categoryBox.setOpaque(true);
+		categoryBox.setUI(new PesonalComboBoxUI(font, PAPAYA_WHIP, EMINENCE));
+		categoryBox.addActionListener(this);
+        this.add(categoryBox);
         
         rollButton = new JButton("New challenge");
         rollButton.setFont(font);
         rollButton.setBounds(200, 650, 400, 60);
         rollButton.addActionListener(this);
-        rollButton.setBackground(new Color(255, 236, 206));
-        rollButton.setForeground(new Color(91, 58, 124));
+        rollButton.setBackground(PAPAYA_WHIP);
+        rollButton.setForeground(EMINENCE);
+        rollButton.setOpaque(true);
+        rollButton.setBorderPainted(false);
         this.add(rollButton);
 		
 //		test = new FileChanger("files/test.txt");
@@ -121,20 +130,6 @@ u shall laugh
 		g.drawImage(new ImageIcon("img/orb.gif").getImage(), 250, 200, 144*2, 143*2, this);
 //		g.drawImage(new ImageIcon("img/orb-shatter.gif").getImage(), 400, 400, 167, 149, this);
 		
-		Font font = null;
-		
-		try {
-			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/PixelifySans-VariableFont_wght.ttf")).deriveFont(48f);
-			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-			ge.registerFont(font);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (FontFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 //		g.drawString("mwahahahaha", 100, 100);
 //		AttributedString atString= new AttributedString("Do a small coloring page today.");
 //		atString.addAttribute(TextAttribute.FONT, font);
@@ -142,8 +137,8 @@ u shall laugh
 		
 		AttributedString atString = new AttributedString(display);
 		atString.addAttribute(TextAttribute.FONT, font);
+		g.setColor(PAPAYA_WHIP);
 		g.drawString(atString.getIterator(), 60, 600);
-
 		
 //		test.deleteFirstChar();
 //		test.add(null, (int)(Math.random() * 10) + "");

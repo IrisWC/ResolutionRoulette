@@ -10,6 +10,7 @@ public class Main {
 		// TODO Auto-generated method stub
 
 		Game window = new Game();
+		
 	}
 	
 	
