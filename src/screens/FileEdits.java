@@ -99,7 +99,7 @@ public class FileEdits extends JPanel implements ActionListener{
         
         done = new JButton("Done");
         done.setFont(font);
-        done.setBounds(300, 690, 150, 60);
+        done.setBounds(320, 690, 150, 60);
         done.addActionListener(this);
         done.setBackground(Game.PAPAYA_WHIP);
         done.setForeground(Game.EMINENCE);
