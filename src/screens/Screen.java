@@ -4,11 +4,15 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.FontFormatException;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.GraphicsEnvironment;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.font.FontRenderContext;
 import java.awt.font.TextAttribute;
+import java.awt.geom.Rectangle2D;
 import java.io.File;
 import java.io.IOException;
 import java.text.AttributedString;
@@ -111,20 +115,39 @@ u shall laugh
 		
 		g.drawImage(new ImageIcon("img/orb.gif").getImage(), 250, 150, 144*2, 143*2, this);
 		
-		AttributedString atString = new AttributedString(display);
-		atString.addAttribute(TextAttribute.FONT, Game.font);
 		g.setColor(Game.PAPAYA_WHIP);
-		g.drawString(atString.getIterator(), 60, 600);
 		
-		AttributedString pString = new AttributedString(punishment);
-		pString.addAttribute(TextAttribute.FONT, Game.font);
-		g.setColor(Game.PAPAYA_WHIP);
-		g.drawString(pString.getIterator(), 60, 660);
+		centerString(g, new Rectangle(), display, Game.font.deriveFont(30f), 600);
+		centerString(g, new Rectangle(), punishment, Game.font.deriveFont(30f), 660);
+		
 		
 //		test.deleteFirstChar();
 //		test.add(null, (int)(Math.random() * 10) + "");
 //		test.writeToFile();
 		
+	}
+	
+	public void centerString(Graphics g, Rectangle r, String s, Font font, int y) {
+	    FontRenderContext frc = new FontRenderContext(null, true, true);
+	    Rectangle2D r2D = font.getStringBounds(s, frc);
+	    int rWidth = (int) Math.round(r2D.getWidth());
+	    int a = (800 / 2) - (rWidth / 2);
+
+	    AttributedString atString = new AttributedString(s);
+		atString.addAttribute(TextAttribute.FONT, Game.font.deriveFont(30f));
+		
+	    g.drawString(atString.getIterator(), r.x + a, y);
+	}
+	
+	public void drawCenteredString(Graphics g, String text, Rectangle rect, Font font, int y) {
+		AttributedString atString = new AttributedString(text);
+		atString.addAttribute(TextAttribute.FONT, Game.font.deriveFont(30f));
+		g.setColor(Game.PAPAYA_WHIP);
+		
+	    FontMetrics metrics = g.getFontMetrics(font);
+	    int x = rect.x + (rect.width - metrics.stringWidth(text)) / 2;
+	    g.setFont(font);
+	    g.drawString(atString.getIterator(), x, y);
 	}
 	
 	
