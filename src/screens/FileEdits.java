@@ -1,6 +1,7 @@
 package screens;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -8,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Vector;
 
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -29,14 +31,16 @@ public class FileEdits extends JPanel implements ActionListener{
 	private String[] categoryNames, difficultyNames;
 	private JComboBox<String> categoryBox, difficultyBox;
 	private FileChanger selected;
-	private JButton confirm, back;
-	private JTextArea text;
+	private JButton confirm, back, done;
 	private Font font;
+	private JTextArea text;
+	private JScrollPane textPane;
 	
 	public FileEdits(Game mainCore) {
 		super();
 		this.mainCore = mainCore;
 		this.setLayout(null);
+		
 		font = Game.font.deriveFont(30f);
 		
 		back = new JButton();
@@ -91,6 +95,30 @@ public class FileEdits extends JPanel implements ActionListener{
         confirm.setOpaque(true);
         confirm.setBorderPainted(false);
         this.add(confirm);
+        
+        done = new JButton("Done");
+        done.setFont(font);
+        done.setBounds(300, 690, 150, 60);
+        done.addActionListener(this);
+        done.setBackground(Game.PAPAYA_WHIP);
+        done.setForeground(Game.EMINENCE);
+        done.setOpaque(true);
+        done.setBorderPainted(false);
+        done.setVisible(false);
+        this.add(done);
+        
+        text = new JTextArea();
+	    text.setLineWrap(true);
+	    text.setWrapStyleWord(true);
+	    text.setBackground(Game.PAPAYA_WHIP);
+	    text.setFont(font.deriveFont(20f));
+	    text.setForeground(Game.EMINENCE);
+	    textPane = new JScrollPane(text,
+	              ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+	              ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+	    textPane.setBounds(100, 280, 600, 370);
+	    textPane.setVisible(false);
+		this.add(textPane);
 	}
 	
 	public void paintComponent(Graphics g) {
@@ -134,29 +162,9 @@ public class FileEdits extends JPanel implements ActionListener{
 	}
 	
 	public void setTextBox() {
-//		text = new JTextArea(10, 20);
-//	    text.setLineWrap(true);
-//	    text.setWrapStyleWord(true);
-//	    JScrollPane textPane = new JScrollPane(text,
-//	              ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-//	              ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-	    
-	   
-//	    this.add(text);
-	    
-//	    Box box1 = Box.createVerticalBox();
-//	    box1.add(Box.createVerticalStrut(10));
-//	    box1.add(textPane);
-//	    box1.add(Box.createVerticalStrut(10));
-////	    box1.add(markedPane);
-//	    box1.add(Box.createVerticalStrut(10));
-////	    box1.add(go);
-	    
-//	    text.setText(roll());
-//	    text.setText("Hello!!!");
-		
-		 JTextArea area = new JTextArea();
-		 this.add(area);
+		done.setVisible(true);
+	    text.setText(roll());
+		textPane.setVisible(true);
 	}
 	
 	public String roll() {

@@ -48,7 +48,7 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 		setIconImage(img.getImage());
 		
 		setSize(WIDTH, HEIGHT);
-		setBounds(100, 0, WIDTH, HEIGHT);
+		setBounds(300, 0, WIDTH, HEIGHT);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		
