@@ -32,18 +32,11 @@ public class Screen extends JPanel implements ActionListener {
 	private Game mainCore;
 	private FileEdits fw;
 	private String level;
-	private Vector<String> categoryNames;
-	private String[] difficultyNames;
+	private String[] categoryNames, difficultyNames;
 	private JComboBox<String> categoryBox, difficultyBox;
 	private JButton rollButton;
 	private String display, punishment;
 	private FileChanger selected;
-	private Font font;
-	
-	protected static final Color PAPAYA_WHIP = new Color(255, 236, 206);
-	protected static final Color EMINENCE = new Color(91, 58, 124);
-//	private static final Color ALICE_BLUE = new Color(237, 245, 253);
-//	private static final Color PERIWINKLE = new Color(181, 189, 241);
 	
 	public Screen(Game mainCore, FileEdits fw) {
 		super();
@@ -61,21 +54,10 @@ public class Screen extends JPanel implements ActionListener {
 		
 		display = "Please make your selections";
 		punishment = "Then hit \"New Challenge\"";
-        
-		font = null;
-		try {
-			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/PixelifySans-VariableFont_wght.ttf")).deriveFont(48f);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (FontFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 		difficultyBox = new JComboBox<>(difficultyNames);	
         difficultyBox.setBounds(50, 50, 300, 60);
-        difficultyBox.setUI(new PesonalComboBoxUI(font, PAPAYA_WHIP, EMINENCE));
+        difficultyBox.setUI(new PesonalComboBoxUI(Game.font, Game.PAPAYA_WHIP, Game.EMINENCE));
         difficultyBox.addActionListener(this);
         this.add(difficultyBox);
 		
@@ -83,16 +65,16 @@ public class Screen extends JPanel implements ActionListener {
 		categoryBox.setBounds(450, 50, 300, 60);
 //		categoryBox.setBorder(BorderFactory.createEmptyBorder());
 //		categoryBox.setOpaque(true);
-		categoryBox.setUI(new PesonalComboBoxUI(font, PAPAYA_WHIP, EMINENCE));
+		categoryBox.setUI(new PesonalComboBoxUI(Game.font, Game.PAPAYA_WHIP, Game.EMINENCE));
 		categoryBox.addActionListener(this);
         this.add(categoryBox);
         
         rollButton = new JButton("New challenge");
-        rollButton.setFont(font);
+        rollButton.setFont(Game.font);
         rollButton.setBounds(200, 480, 400, 60);
         rollButton.addActionListener(this);
-        rollButton.setBackground(PAPAYA_WHIP);
-        rollButton.setForeground(EMINENCE);
+        rollButton.setBackground(Game.PAPAYA_WHIP);
+        rollButton.setForeground(Game.EMINENCE);
         rollButton.setOpaque(true);
         rollButton.setBorderPainted(false);
         this.add(rollButton);
@@ -140,13 +122,13 @@ u shall laugh
 //		g.drawString(atString.getIterator(), 50, 600);
 		
 		AttributedString atString = new AttributedString(display);
-		atString.addAttribute(TextAttribute.FONT, font);
-		g.setColor(PAPAYA_WHIP);
+		atString.addAttribute(TextAttribute.FONT, Game.font);
+		g.setColor(Game.PAPAYA_WHIP);
 		g.drawString(atString.getIterator(), 60, 600);
 		
 		AttributedString pString = new AttributedString(punishment);
-		pString.addAttribute(TextAttribute.FONT, font);
-		g.setColor(PAPAYA_WHIP);
+		pString.addAttribute(TextAttribute.FONT, Game.font);
+		g.setColor(Game.PAPAYA_WHIP);
 		g.drawString(pString.getIterator(), 60, 660);
 		
 //		test.deleteFirstChar();
@@ -171,19 +153,19 @@ u shall laugh
 //		}
 //	}
 	
-	public void setUpBox() {
-		categoryBox = new JComboBox<>(categoryNames);	
-		categoryBox.setBounds(450, 50, 300, 60);
-		categoryBox.setUI(new PesonalComboBoxUI(font, PAPAYA_WHIP, EMINENCE));
-		categoryBox.addActionListener(this);
-        this.add(categoryBox);
-	}
+//	public void setUpBox() {
+//		categoryBox = new JComboBox<>(categoryNames);	
+//		categoryBox.setBounds(450, 50, 300, 60);
+//		categoryBox.setUI(new PesonalComboBoxUI(font, PAPAYA_WHIP, EMINENCE));
+//		categoryBox.addActionListener(this);
+//        this.add(categoryBox);
+//	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource() == categoryBox) {
-			setUpBox();
+//			setUpBox();
 			String selection = (String)categoryBox.getSelectedItem();
 			selected = new FileChanger("files/" + selection + ".txt");
 		}
