@@ -34,7 +34,7 @@ public class Screen extends JPanel implements ActionListener {
 	private String level;
 	private String[] categoryNames, difficultyNames;
 	private JComboBox<String> categoryBox, difficultyBox;
-	private JButton rollButton;
+	private JButton edit, rollButton;
 	private String display, punishment;
 	private FileChanger selected;
 	
@@ -68,6 +68,16 @@ public class Screen extends JPanel implements ActionListener {
 		categoryBox.setUI(new PesonalComboBoxUI(Game.font, Game.PAPAYA_WHIP, Game.EMINENCE));
 		categoryBox.addActionListener(this);
         this.add(categoryBox);
+        
+        edit = new JButton("Edit");
+        edit.setFont(Game.font);
+        edit.setBounds(200, 50, 100, 60);
+        edit.addActionListener(this);
+        edit.setBackground(Game.PAPAYA_WHIP);
+        edit.setForeground(Game.EMINENCE);
+        edit.setOpaque(true);
+        edit.setBorderPainted(false);
+        this.add(edit);
         
         rollButton = new JButton("New challenge");
         rollButton.setFont(Game.font);
@@ -172,6 +182,9 @@ u shall laugh
 		if(e.getSource() == rollButton) {
 			display = roll();
 			punishment = rollPunishment();
+		}
+		if(e.getSource() == edit) {
+			mainCore.switchScreen("edit");
 		}
 	}
 	

@@ -34,7 +34,7 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 	public static Font font;
 	
 	private JPanel cardPanel;
-	private FileEdits fw;
+	private FileEdits edit;
 	private Screen mainScreen;
 	private Menu menu;
 	private Credits credits;
@@ -65,12 +65,12 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 		cardPanel.setLayout(cl);
 		
 		menu = new Menu(this, WIDTH, HEIGHT);
-		fw = new FileEdits(this, WIDTH, HEIGHT);
-		mainScreen = new Screen(this, fw);
+		edit = new FileEdits(this, WIDTH, HEIGHT);
+		mainScreen = new Screen(this, edit);
 		credits = new Credits(this, WIDTH, HEIGHT);
 		
 		cardPanel.add(menu, "menu");
-		cardPanel.add(fw, "fw");
+		cardPanel.add(edit, "edit");
 		cardPanel.add(mainScreen, "mainScreen");
 		cardPanel.add(credits, "credits");
 		
