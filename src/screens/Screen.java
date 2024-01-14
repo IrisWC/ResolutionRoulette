@@ -42,7 +42,6 @@ public class Screen extends JPanel implements ActionListener {
 		super();
 		this.mainCore = mainCore;
 		
-//		this.setBackground(new Color(230,190,200));
 		this.setBackground(new Color(12,4,43));
 		this.setLayout(null);
 		
@@ -56,13 +55,13 @@ public class Screen extends JPanel implements ActionListener {
 		punishment = "Then hit \"New Challenge\"";
 		
 		difficultyBox = new JComboBox<>(difficultyNames);	
-        difficultyBox.setBounds(50, 50, 300, 60);
+        difficultyBox.setBounds(50, 50, 240, 60);
         difficultyBox.setUI(new PesonalComboBoxUI(Game.font, Game.PAPAYA_WHIP, Game.EMINENCE));
         difficultyBox.addActionListener(this);
         this.add(difficultyBox);
 		
 		categoryBox = new JComboBox<>(categoryNames);	
-		categoryBox.setBounds(450, 50, 300, 60);
+		categoryBox.setBounds(330, 50, 260, 60);
 //		categoryBox.setBorder(BorderFactory.createEmptyBorder());
 //		categoryBox.setOpaque(true);
 		categoryBox.setUI(new PesonalComboBoxUI(Game.font, Game.PAPAYA_WHIP, Game.EMINENCE));
@@ -70,8 +69,8 @@ public class Screen extends JPanel implements ActionListener {
         this.add(categoryBox);
         
         edit = new JButton("Edit");
-        edit.setFont(Game.font);
-        edit.setBounds(200, 50, 100, 60);
+        edit.setFont(Game.font.deriveFont(35f));
+        edit.setBounds(630, 50, 120, 60);
         edit.addActionListener(this);
         edit.setBackground(Game.PAPAYA_WHIP);
         edit.setForeground(Game.EMINENCE);

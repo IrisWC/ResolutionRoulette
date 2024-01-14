@@ -1,5 +1,6 @@
 package screens;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,6 +30,8 @@ public class FileEdits extends JPanel implements ActionListener{
 		this.w = w;
 		this.h = h;
 		
+		this.setBackground(new Color(12,4,43));
+		
 //		categories = new ArrayList<FileChanger>();
 //		categories.add(new FileChanger("files/clean.txt"));
 //		categories.add(new FileChanger("files/diet.txt"));
@@ -48,6 +51,9 @@ public class FileEdits extends JPanel implements ActionListener{
 		categories[5] = new FileChanger("files/self-care.txt");
 		categories[6] =  new FileChanger("files/social.txt");
 		categories[7] = new FileChanger("files/punishment.txt");
+		
+		categoryNames = returnNames();
+		difficultyNames = new String[]{"Easy", "Medium", "Hard", "Nightmare"};
 		
 		difficultyBox = new JComboBox<>(difficultyNames);	
         difficultyBox.setBounds(50, 50, 300, 60);

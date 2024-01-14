@@ -51,7 +51,7 @@ public class Game extends JFrame { //implements ActionListener, WindowListener{
 		setResizable(false);
 		
 		try {
-			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/PixelifySans-VariableFont_wght.ttf")).deriveFont(48f);
+			font = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/PixelifySans-VariableFont_wght.ttf")).deriveFont(40f);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
