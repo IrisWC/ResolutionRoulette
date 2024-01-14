@@ -35,6 +35,7 @@ public class FileEdits extends JPanel implements ActionListener{
 	private Font font;
 	private JTextArea text;
 	private JScrollPane textPane;
+	private String textContents;
 	
 	public FileEdits(Game mainCore) {
 		super();
@@ -165,13 +166,15 @@ public class FileEdits extends JPanel implements ActionListener{
 	}
 	
 	public void setTextBox() {
+		textContents = roll();
+		
 		done.setVisible(true);
-	    text.setText(roll());
+	    text.setText(textContents);
 		textPane.setVisible(true);
 	}
 	
 	public void saveEdits() {
-		
+		selected.add(textContents, text.getText());
 	}
 	
 	public String roll() {

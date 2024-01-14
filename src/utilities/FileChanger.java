@@ -39,8 +39,11 @@ public class FileChanger {
 			stringBufferOfData.append(edit);
 		}
 		else {
+			// here
 			int start = stringBufferOfData.indexOf(toEdit);
+			System.out.println(start);
 			int end = start + toEdit.length();
+			System.out.println(end);
 			stringBufferOfData.delete(start, end);
 			stringBufferOfData.insert(start, edit);
 		}
